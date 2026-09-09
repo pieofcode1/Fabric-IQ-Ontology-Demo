@@ -1,0 +1,301 @@
+exposure_id,incident_id,account_id,customer_tier,breach_type,exposure_amount,currency,exposure_status,source_system,ingestion_timestamp,ingestion_date,source_file,batch_id
+SLA-00000001,INC-2026-ONT-001,ACCT-0002147,Premium,Latency,86.5,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000002,INC-2026-ONT-018,ACCT-0004606,Premium,Latency,150.98,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000003,INC-2026-ONT-001,ACCT-0003627,Premium,Availability,135.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000004,INC-2026-ONT-001,ACCT-0000149,Premium,Availability,43.26,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000005,INC-2026-ONT-019,ACCT-0003706,Premium,Availability,163.95,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000006,INC-2026-ONT-002,ACCT-0000828,Premium,Resolution Time,65.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000007,INC-2026-ONT-008,ACCT-0000008,Premium,Availability,83.05,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000008,INC-2026-ONT-001,ACCT-0002951,Enterprise,Availability,429.03,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000009,INC-2026-ONT-015,ACCT-0006883,Premium,Latency,106.85,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000010,INC-2026-ONT-001,ACCT-0007326,Premium,Latency,153.22,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000011,INC-2026-ONT-001,ACCT-0004956,Premium,Latency,59.95,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000012,INC-2026-ONT-021,ACCT-0006002,Premium,Latency,57.82,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000013,INC-2026-ONT-001,ACCT-0005427,Premium,Latency,51.1,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000014,INC-2026-ONT-001,ACCT-0006801,Premium,Resolution Time,120.58,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000015,INC-2026-ONT-001,ACCT-0002812,Premium,Availability,123.21,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000016,INC-2026-ONT-001,ACCT-0000240,Premium,Availability,140.94,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000017,INC-2026-ONT-001,ACCT-0006660,Enterprise,Resolution Time,767.4,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000018,INC-2026-ONT-022,ACCT-0001678,Premium,Latency,167.53,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000019,INC-2026-ONT-013,ACCT-0006672,Premium,Latency,143.69,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000020,INC-2026-ONT-001,ACCT-0002286,Premium,Availability,81.19,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000021,INC-2026-ONT-001,ACCT-0006801,Premium,Resolution Time,171.76,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000022,INC-2026-ONT-001,ACCT-0007461,Premium,Resolution Time,180.62,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000023,INC-2026-ONT-001,ACCT-0006101,Premium,Latency,196.55,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000024,INC-2026-ONT-001,ACCT-0000873,Premium,Latency,90.07,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000025,INC-2026-ONT-001,ACCT-0001143,Premium,Availability,195.15,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000026,INC-2026-ONT-001,ACCT-0000329,Premium,Latency,145.96,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000027,INC-2026-ONT-001,ACCT-0004985,Enterprise,Availability,591.28,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000028,INC-2026-ONT-001,ACCT-0003027,Premium,Resolution Time,176.58,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000029,INC-2026-ONT-012,ACCT-0001950,Premium,Availability,37.52,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000030,INC-2026-ONT-001,ACCT-0005427,Premium,Availability,77.59,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000031,INC-2026-ONT-001,ACCT-0000717,Premium,Resolution Time,40.64,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000032,INC-2026-ONT-023,ACCT-0003150,Premium,Latency,104.83,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000033,INC-2026-ONT-013,ACCT-0004789,Premium,Latency,34.85,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000034,INC-2026-ONT-001,ACCT-0007411,Premium,Resolution Time,163.45,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000035,INC-2026-ONT-001,ACCT-0007088,Premium,Resolution Time,88.16,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000036,INC-2026-ONT-001,ACCT-0000717,Premium,Availability,192.36,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000037,INC-2026-ONT-022,ACCT-0001290,Premium,Availability,137.03,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000038,INC-2026-ONT-023,ACCT-0005919,Premium,Availability,58.18,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000039,INC-2026-ONT-004,ACCT-0001090,Premium,Resolution Time,115.85,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000040,INC-2026-ONT-001,ACCT-0004776,Premium,Availability,37.75,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000041,INC-2026-ONT-001,ACCT-0001721,Premium,Availability,47.86,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000042,INC-2026-ONT-001,ACCT-0002293,Premium,Availability,82.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000043,INC-2026-ONT-001,ACCT-0000149,Premium,Latency,98.7,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000044,INC-2026-ONT-001,ACCT-0003689,Enterprise,Latency,423.18,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000045,INC-2026-ONT-007,ACCT-0001117,Premium,Latency,171.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000046,INC-2026-ONT-001,ACCT-0006101,Premium,Availability,156.57,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000047,INC-2026-ONT-001,ACCT-0007037,Premium,Resolution Time,133.82,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000048,INC-2026-ONT-001,ACCT-0000558,Premium,Availability,101.02,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000049,INC-2026-ONT-004,ACCT-0001739,Premium,Availability,115.58,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000050,INC-2026-ONT-001,ACCT-0007088,Premium,Availability,58.12,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000051,INC-2026-ONT-001,ACCT-0001191,Premium,Latency,42.77,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000052,INC-2026-ONT-001,ACCT-0002255,Premium,Resolution Time,177.3,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000053,INC-2026-ONT-001,ACCT-0003536,Premium,Availability,78.43,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000054,INC-2026-ONT-002,ACCT-0000327,Premium,Availability,35.0,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000055,INC-2026-ONT-023,ACCT-0005919,Premium,Resolution Time,37.12,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000056,INC-2026-ONT-002,ACCT-0001124,Premium,Latency,57.82,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000057,INC-2026-ONT-016,ACCT-0001143,Premium,Availability,174.06,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000058,INC-2026-ONT-001,ACCT-0007326,Premium,Resolution Time,104.15,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000059,INC-2026-ONT-001,ACCT-0006801,Premium,Availability,106.3,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000060,INC-2026-ONT-001,ACCT-0006711,Premium,Availability,82.04,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000061,INC-2026-ONT-017,ACCT-0004318,Premium,Availability,92.08,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000062,INC-2026-ONT-001,ACCT-0001169,Enterprise,Resolution Time,147.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000063,INC-2026-ONT-004,ACCT-0001739,Premium,Availability,164.42,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000064,INC-2026-ONT-001,ACCT-0001144,Premium,Availability,102.39,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000065,INC-2026-ONT-009,ACCT-0001871,Premium,Latency,77.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000066,INC-2026-ONT-001,ACCT-0007461,Premium,Latency,25.73,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000067,INC-2026-ONT-001,ACCT-0007245,Premium,Resolution Time,45.56,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000068,INC-2026-ONT-001,ACCT-0003627,Premium,Availability,155.03,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000069,INC-2026-ONT-001,ACCT-0007411,Premium,Resolution Time,183.88,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000070,INC-2026-ONT-001,ACCT-0003536,Premium,Resolution Time,196.85,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000071,INC-2026-ONT-003,ACCT-0005157,Premium,Latency,168.78,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000072,INC-2026-ONT-001,ACCT-0000873,Premium,Resolution Time,112.61,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000073,INC-2026-ONT-001,ACCT-0000873,Premium,Resolution Time,185.85,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000074,INC-2026-ONT-001,ACCT-0007173,Premium,Availability,98.55,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000075,INC-2026-ONT-024,ACCT-0003000,Premium,Resolution Time,122.2,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000076,INC-2026-ONT-001,ACCT-0005404,Premium,Latency,44.98,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000077,INC-2026-ONT-015,ACCT-0005313,Premium,Availability,129.21,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000078,INC-2026-ONT-001,ACCT-0006711,Premium,Availability,127.81,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000079,INC-2026-ONT-001,ACCT-0002255,Premium,Latency,85.85,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000080,INC-2026-ONT-001,ACCT-0003853,Premium,Availability,188.4,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000081,INC-2026-ONT-001,ACCT-0003080,Premium,Resolution Time,186.81,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000082,INC-2026-ONT-005,ACCT-0005519,Premium,Availability,159.91,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000083,INC-2026-ONT-001,ACCT-0002255,Premium,Availability,67.88,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000084,INC-2026-ONT-012,ACCT-0001489,Premium,Latency,83.35,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000085,INC-2026-ONT-001,ACCT-0007173,Premium,Availability,25.82,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000086,INC-2026-ONT-001,ACCT-0002293,Premium,Resolution Time,70.47,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000087,INC-2026-ONT-014,ACCT-0004638,Premium,Resolution Time,93.77,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000088,INC-2026-ONT-019,ACCT-0007426,Premium,Resolution Time,121.25,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000089,INC-2026-ONT-001,ACCT-0001951,Enterprise,Availability,385.8,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000090,INC-2026-ONT-001,ACCT-0002812,Premium,Latency,58.16,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000091,INC-2026-ONT-001,ACCT-0002951,Enterprise,Resolution Time,260.16,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000092,INC-2026-ONT-001,ACCT-0005404,Premium,Availability,117.36,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000093,INC-2026-ONT-001,ACCT-0002255,Premium,Availability,182.23,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000094,INC-2026-ONT-001,ACCT-0001484,Premium,Availability,120.34,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000095,INC-2026-ONT-007,ACCT-0002465,Premium,Availability,41.19,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000096,INC-2026-ONT-001,ACCT-0003020,Premium,Availability,83.42,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000097,INC-2026-ONT-024,ACCT-0001844,Premium,Latency,69.69,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000098,INC-2026-ONT-001,ACCT-0002255,Premium,Availability,188.85,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000099,INC-2026-ONT-001,ACCT-0000704,Premium,Latency,185.77,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000100,INC-2026-ONT-001,ACCT-0006426,Premium,Availability,188.53,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000101,INC-2026-ONT-001,ACCT-0003027,Premium,Resolution Time,146.51,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000102,INC-2026-ONT-010,ACCT-0006173,Enterprise,Availability,542.28,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000103,INC-2026-ONT-001,ACCT-0007461,Premium,Latency,140.36,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000104,INC-2026-ONT-001,ACCT-0003853,Premium,Availability,72.57,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000105,INC-2026-ONT-003,ACCT-0006309,Premium,Availability,44.53,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000106,INC-2026-ONT-001,ACCT-0000240,Premium,Resolution Time,190.79,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000107,INC-2026-ONT-015,ACCT-0005821,Premium,Resolution Time,105.67,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000108,INC-2026-ONT-001,ACCT-0004956,Premium,Availability,45.91,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000109,INC-2026-ONT-008,ACCT-0003446,Premium,Resolution Time,70.41,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000110,INC-2026-ONT-001,ACCT-0003014,Premium,Availability,129.79,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000111,INC-2026-ONT-020,ACCT-0004646,Premium,Latency,147.3,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000112,INC-2026-ONT-001,ACCT-0003689,Enterprise,Availability,235.56,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000113,INC-2026-ONT-009,ACCT-0003394,Premium,Latency,116.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000114,INC-2026-ONT-001,ACCT-0001951,Enterprise,Availability,482.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000115,INC-2026-ONT-018,ACCT-0004606,Premium,Availability,153.95,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000116,INC-2026-ONT-009,ACCT-0007069,Premium,Resolution Time,84.11,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000117,INC-2026-ONT-003,ACCT-0001387,Premium,Resolution Time,198.81,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000118,INC-2026-ONT-001,ACCT-0003063,Premium,Availability,67.51,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000119,INC-2026-ONT-001,ACCT-0003425,Premium,Latency,66.13,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000120,INC-2026-ONT-003,ACCT-0006047,Premium,Latency,133.02,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000121,INC-2026-ONT-001,ACCT-0002147,Premium,Availability,102.32,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000122,INC-2026-ONT-015,ACCT-0006220,Premium,Availability,79.1,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000123,INC-2026-ONT-001,ACCT-0000329,Premium,Latency,83.96,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000124,INC-2026-ONT-001,ACCT-0000329,Premium,Resolution Time,133.04,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000125,INC-2026-ONT-019,ACCT-0004401,Premium,Resolution Time,191.62,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000126,INC-2026-ONT-018,ACCT-0005157,Premium,Resolution Time,156.04,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000127,INC-2026-ONT-020,ACCT-0001671,Premium,Latency,122.14,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000128,INC-2026-ONT-018,ACCT-0005157,Premium,Resolution Time,145.99,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000129,INC-2026-ONT-020,ACCT-0002790,Premium,Latency,26.32,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000130,INC-2026-ONT-001,ACCT-0002648,Premium,Resolution Time,58.82,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000131,INC-2026-ONT-001,ACCT-0002812,Premium,Availability,76.59,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000132,INC-2026-ONT-001,ACCT-0006101,Premium,Availability,133.0,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000133,INC-2026-ONT-013,ACCT-0000205,Premium,Latency,86.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000134,INC-2026-ONT-001,ACCT-0006660,Enterprise,Availability,709.13,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000135,INC-2026-ONT-003,ACCT-0001856,Premium,Latency,179.19,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000136,INC-2026-ONT-001,ACCT-0006101,Premium,Resolution Time,50.79,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000137,INC-2026-ONT-001,ACCT-0003080,Premium,Resolution Time,115.48,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000138,INC-2026-ONT-001,ACCT-0004672,Premium,Resolution Time,194.96,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000139,INC-2026-ONT-001,ACCT-0003425,Premium,Resolution Time,70.61,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000140,INC-2026-ONT-006,ACCT-0002466,Premium,Latency,107.04,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000141,INC-2026-ONT-001,ACCT-0003575,Premium,Resolution Time,197.98,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000142,INC-2026-ONT-022,ACCT-0000411,Premium,Latency,86.9,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000143,INC-2026-ONT-001,ACCT-0002293,Premium,Latency,67.61,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000144,INC-2026-ONT-001,ACCT-0005855,Premium,Resolution Time,186.41,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000145,INC-2026-ONT-012,ACCT-0002561,Premium,Availability,43.64,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000146,INC-2026-ONT-007,ACCT-0002271,Premium,Latency,103.51,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000147,INC-2026-ONT-001,ACCT-0002255,Premium,Availability,103.5,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000148,INC-2026-ONT-001,ACCT-0002321,Premium,Resolution Time,66.31,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000149,INC-2026-ONT-001,ACCT-0000376,Premium,Availability,180.21,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000150,INC-2026-ONT-001,ACCT-0003014,Premium,Resolution Time,91.5,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000151,INC-2026-ONT-001,ACCT-0003027,Premium,Resolution Time,97.97,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000152,INC-2026-ONT-001,ACCT-0002321,Premium,Availability,61.1,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000153,INC-2026-ONT-022,ACCT-0000411,Premium,Availability,140.41,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000154,INC-2026-ONT-001,ACCT-0005404,Premium,Resolution Time,131.97,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000155,INC-2026-ONT-022,ACCT-0006849,Premium,Availability,198.72,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000156,INC-2026-ONT-001,ACCT-0002951,Enterprise,Resolution Time,588.01,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000157,INC-2026-ONT-001,ACCT-0001169,Enterprise,Latency,762.12,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000158,INC-2026-ONT-001,ACCT-0003027,Premium,Availability,113.02,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000159,INC-2026-ONT-001,ACCT-0007088,Premium,Latency,98.84,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000160,INC-2026-ONT-003,ACCT-0004258,Premium,Latency,64.64,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000161,INC-2026-ONT-001,ACCT-0006660,Enterprise,Resolution Time,744.2,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000162,INC-2026-ONT-003,ACCT-0004258,Premium,Resolution Time,84.39,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000163,INC-2026-ONT-001,ACCT-0001780,Premium,Latency,104.89,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000164,INC-2026-ONT-001,ACCT-0002147,Premium,Latency,145.9,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000165,INC-2026-ONT-001,ACCT-0006426,Premium,Availability,166.94,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000166,INC-2026-ONT-001,ACCT-0003906,Premium,Resolution Time,31.47,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000167,INC-2026-ONT-014,ACCT-0005415,Premium,Latency,125.96,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000168,INC-2026-ONT-001,ACCT-0004881,Premium,Resolution Time,47.11,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000169,INC-2026-ONT-001,ACCT-0000723,Premium,Availability,150.79,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000170,INC-2026-ONT-001,ACCT-0007245,Premium,Latency,170.38,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000171,INC-2026-ONT-001,ACCT-0000723,Premium,Resolution Time,166.4,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000172,INC-2026-ONT-001,ACCT-0002293,Premium,Availability,95.32,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000173,INC-2026-ONT-001,ACCT-0000329,Premium,Availability,120.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000174,INC-2026-ONT-001,ACCT-0004956,Premium,Latency,55.35,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000175,INC-2026-ONT-001,ACCT-0003319,Premium,Availability,154.47,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000176,INC-2026-ONT-019,ACCT-0004490,Premium,Resolution Time,183.5,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000177,INC-2026-ONT-001,ACCT-0004776,Premium,Availability,177.16,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000178,INC-2026-ONT-001,ACCT-0004956,Premium,Resolution Time,48.25,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000179,INC-2026-ONT-014,ACCT-0003631,Premium,Availability,144.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000180,INC-2026-ONT-001,ACCT-0006426,Premium,Availability,148.12,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000181,INC-2026-ONT-001,ACCT-0006512,Premium,Resolution Time,184.8,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000182,INC-2026-ONT-001,ACCT-0005537,Premium,Availability,133.12,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000183,INC-2026-ONT-001,ACCT-0007072,Premium,Resolution Time,191.16,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000184,INC-2026-ONT-001,ACCT-0003020,Premium,Availability,157.44,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000185,INC-2026-ONT-001,ACCT-0002648,Premium,Latency,176.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000186,INC-2026-ONT-001,ACCT-0001637,Premium,Availability,107.43,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000187,INC-2026-ONT-001,ACCT-0003906,Premium,Availability,91.46,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000188,INC-2026-ONT-001,ACCT-0000656,Premium,Availability,147.92,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000189,INC-2026-ONT-001,ACCT-0007450,Premium,Latency,62.11,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000190,INC-2026-ONT-001,ACCT-0000240,Premium,Latency,197.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000191,INC-2026-ONT-001,ACCT-0003305,Premium,Availability,133.05,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000192,INC-2026-ONT-001,ACCT-0005856,Premium,Resolution Time,164.18,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000193,INC-2026-ONT-001,ACCT-0001169,Enterprise,Resolution Time,254.45,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000194,INC-2026-ONT-001,ACCT-0004956,Premium,Resolution Time,117.32,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000195,INC-2026-ONT-001,ACCT-0007037,Premium,Resolution Time,43.78,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000196,INC-2026-ONT-014,ACCT-0001806,Premium,Resolution Time,180.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000197,INC-2026-ONT-001,ACCT-0004776,Premium,Resolution Time,192.74,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000198,INC-2026-ONT-002,ACCT-0000327,Premium,Availability,34.39,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000199,INC-2026-ONT-005,ACCT-0003962,Premium,Latency,96.92,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000200,INC-2026-ONT-022,ACCT-0004547,Premium,Availability,189.87,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000201,INC-2026-ONT-001,ACCT-0001191,Premium,Availability,86.94,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000202,INC-2026-ONT-001,ACCT-0002812,Premium,Resolution Time,148.38,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000203,INC-2026-ONT-001,ACCT-0002255,Premium,Availability,172.55,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000204,INC-2026-ONT-015,ACCT-0002291,Premium,Availability,60.65,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000205,INC-2026-ONT-001,ACCT-0007088,Premium,Resolution Time,35.04,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000206,INC-2026-ONT-001,ACCT-0000138,Premium,Resolution Time,82.78,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000207,INC-2026-ONT-001,ACCT-0000138,Premium,Availability,197.03,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000208,INC-2026-ONT-017,ACCT-0004318,Premium,Latency,128.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000209,INC-2026-ONT-011,ACCT-0004063,Premium,Availability,152.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000210,INC-2026-ONT-014,ACCT-0003631,Premium,Availability,130.51,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000211,INC-2026-ONT-001,ACCT-0005254,Premium,Resolution Time,115.63,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000212,INC-2026-ONT-024,ACCT-0004030,Premium,Resolution Time,37.5,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000213,INC-2026-ONT-001,ACCT-0005125,Premium,Latency,83.94,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000214,INC-2026-ONT-016,ACCT-0002951,Enterprise,Resolution Time,310.72,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000215,INC-2026-ONT-001,ACCT-0006426,Premium,Latency,145.89,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000216,INC-2026-ONT-001,ACCT-0000704,Premium,Availability,48.85,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000217,INC-2026-ONT-001,ACCT-0001780,Premium,Resolution Time,186.45,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000218,INC-2026-ONT-011,ACCT-0006176,Premium,Availability,164.6,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000219,INC-2026-ONT-001,ACCT-0003800,Premium,Latency,70.32,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000220,INC-2026-ONT-001,ACCT-0005855,Premium,Latency,57.44,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000221,INC-2026-ONT-010,ACCT-0006456,Premium,Latency,142.81,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000222,INC-2026-ONT-006,ACCT-0002533,Premium,Latency,54.84,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000223,INC-2026-ONT-001,ACCT-0001191,Premium,Latency,26.78,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000224,INC-2026-ONT-014,ACCT-0004727,Premium,Latency,166.66,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000225,INC-2026-ONT-001,ACCT-0002251,Premium,Availability,145.24,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000226,INC-2026-ONT-001,ACCT-0001144,Premium,Availability,48.62,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000227,INC-2026-ONT-001,ACCT-0002951,Enterprise,Availability,350.39,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000228,INC-2026-ONT-001,ACCT-0005254,Premium,Availability,98.56,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000229,INC-2026-ONT-001,ACCT-0006512,Premium,Resolution Time,54.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000230,INC-2026-ONT-001,ACCT-0002321,Premium,Availability,135.07,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000231,INC-2026-ONT-001,ACCT-0006970,Premium,Latency,166.01,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000232,INC-2026-ONT-001,ACCT-0007088,Premium,Resolution Time,59.59,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000233,INC-2026-ONT-025,ACCT-0002293,Premium,Availability,30.11,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000234,INC-2026-ONT-001,ACCT-0003080,Premium,Latency,150.95,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000235,INC-2026-ONT-001,ACCT-0003853,Premium,Availability,96.54,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000236,INC-2026-ONT-001,ACCT-0001143,Premium,Latency,62.19,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000237,INC-2026-ONT-001,ACCT-0007037,Premium,Availability,113.25,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000238,INC-2026-ONT-001,ACCT-0001637,Premium,Availability,114.41,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000239,INC-2026-ONT-007,ACCT-0001020,Premium,Availability,146.42,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000240,INC-2026-ONT-001,ACCT-0000240,Premium,Resolution Time,84.27,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000241,INC-2026-ONT-001,ACCT-0007088,Premium,Resolution Time,104.36,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000242,INC-2026-ONT-021,ACCT-0006760,Premium,Latency,175.11,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000243,INC-2026-ONT-001,ACCT-0006711,Premium,Availability,57.9,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000244,INC-2026-ONT-004,ACCT-0001090,Premium,Availability,132.46,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000245,INC-2026-ONT-001,ACCT-0001169,Enterprise,Resolution Time,427.13,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000246,INC-2026-ONT-001,ACCT-0003689,Enterprise,Latency,758.21,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000247,INC-2026-ONT-001,ACCT-0003906,Premium,Resolution Time,61.4,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000248,INC-2026-ONT-001,ACCT-0000704,Premium,Resolution Time,59.35,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000249,INC-2026-ONT-006,ACCT-0006299,Premium,Resolution Time,108.3,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000250,INC-2026-ONT-001,ACCT-0003627,Premium,Latency,121.99,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000251,INC-2026-ONT-001,ACCT-0003995,Premium,Latency,129.26,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000252,INC-2026-ONT-018,ACCT-0004985,Enterprise,Latency,244.03,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000253,INC-2026-ONT-001,ACCT-0002293,Premium,Resolution Time,189.87,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000254,INC-2026-ONT-001,ACCT-0007245,Premium,Latency,161.46,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000255,INC-2026-ONT-012,ACCT-0007394,Premium,Latency,132.24,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000256,INC-2026-ONT-001,ACCT-0003014,Premium,Availability,140.03,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000257,INC-2026-ONT-002,ACCT-0006919,Premium,Availability,114.64,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000258,INC-2026-ONT-001,ACCT-0003906,Premium,Resolution Time,94.49,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000259,INC-2026-ONT-001,ACCT-0000329,Premium,Resolution Time,171.88,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000260,INC-2026-ONT-001,ACCT-0003689,Enterprise,Availability,352.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000261,INC-2026-ONT-001,ACCT-0007088,Premium,Resolution Time,117.46,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000262,INC-2026-ONT-001,ACCT-0004495,Premium,Availability,32.42,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000263,INC-2026-ONT-001,ACCT-0002293,Premium,Latency,50.42,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000264,INC-2026-ONT-005,ACCT-0005519,Premium,Latency,54.57,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000265,INC-2026-ONT-001,ACCT-0000138,Premium,Resolution Time,48.46,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000266,INC-2026-ONT-005,ACCT-0005519,Premium,Availability,84.43,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000267,INC-2026-ONT-013,ACCT-0001504,Premium,Resolution Time,136.91,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000268,INC-2026-ONT-001,ACCT-0000329,Premium,Availability,25.17,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000269,INC-2026-ONT-001,ACCT-0006711,Premium,Availability,161.71,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000270,INC-2026-ONT-001,ACCT-0001144,Premium,Latency,141.43,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000271,INC-2026-ONT-013,ACCT-0000205,Premium,Availability,197.46,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000272,INC-2026-ONT-001,ACCT-0005855,Premium,Availability,99.62,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000273,INC-2026-ONT-001,ACCT-0004329,Premium,Resolution Time,196.38,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000274,INC-2026-ONT-001,ACCT-0003063,Premium,Availability,95.97,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000275,INC-2026-ONT-001,ACCT-0003063,Premium,Resolution Time,138.94,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000276,INC-2026-ONT-001,ACCT-0006512,Premium,Latency,146.12,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000277,INC-2026-ONT-001,ACCT-0000376,Premium,Availability,181.36,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000278,INC-2026-ONT-001,ACCT-0000329,Premium,Resolution Time,175.37,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000279,INC-2026-ONT-003,ACCT-0006047,Premium,Latency,79.38,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000280,INC-2026-ONT-001,ACCT-0005577,Premium,Latency,82.56,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000281,INC-2026-ONT-001,ACCT-0000717,Premium,Latency,68.93,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000282,INC-2026-ONT-001,ACCT-0006711,Premium,Availability,170.76,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000283,INC-2026-ONT-008,ACCT-0005460,Premium,Latency,116.63,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000284,INC-2026-ONT-001,ACCT-0000589,Premium,Latency,144.48,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000285,INC-2026-ONT-001,ACCT-0000717,Premium,Resolution Time,90.14,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000286,INC-2026-ONT-003,ACCT-0004258,Premium,Availability,152.22,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000287,INC-2026-ONT-001,ACCT-0003853,Premium,Resolution Time,46.56,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000288,INC-2026-ONT-019,ACCT-0007426,Premium,Latency,158.84,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000289,INC-2026-ONT-019,ACCT-0003615,Premium,Resolution Time,164.87,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000290,INC-2026-ONT-003,ACCT-0001856,Premium,Resolution Time,47.24,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000291,INC-2026-ONT-001,ACCT-0002293,Premium,Latency,65.69,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000292,INC-2026-ONT-001,ACCT-0004881,Premium,Resolution Time,31.24,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000293,INC-2026-ONT-001,ACCT-0007326,Premium,Latency,60.42,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000294,INC-2026-ONT-001,ACCT-0000149,Premium,Latency,127.97,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000295,INC-2026-ONT-001,ACCT-0000943,Premium,Resolution Time,61.42,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000296,INC-2026-ONT-025,ACCT-0003536,Premium,Latency,127.52,CAD,Waived,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000297,INC-2026-ONT-011,ACCT-0001249,Premium,Resolution Time,139.33,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000298,INC-2026-ONT-001,ACCT-0002760,Enterprise,Latency,391.58,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000299,INC-2026-ONT-001,ACCT-0006801,Premium,Availability,44.07,CAD,Estimated,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+SLA-00000300,INC-2026-ONT-001,ACCT-0007173,Premium,Availability,137.55,CAD,Approved,billing,2026-06-16T12:00:00-04:00,2026-06-16,raw_sla_exposure.csv,4ee9f263-c82d-417d-bbea-199a88e565ac

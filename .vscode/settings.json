@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    "**\\__pycache__": true,
+    "**\\.pytest_cache": true,
+    "**\\.ruff_cache": true
+  },
+  "python.defaultInterpreterPath": ".venv\\Scripts\\python.exe",
+  "markdown.preview.breaks": true,
+  "editor.rulers": [
+    100
+  ],
+  "chat.tools.terminal.autoApprove": {
+    "uv": true
+  }
+}
+

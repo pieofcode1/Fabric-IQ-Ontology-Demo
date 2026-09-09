@@ -1,0 +1,120 @@
+// Starter DAX measures for the Fabric IQ semantic model.
+// Add these to the relevant business tables after the Direct Lake model is created.
+
+measure Customer.'Total Customers' = DISTINCTCOUNT('Customer'[customer_id])
+    formatString: #,0
+    description: Count of unique customers.
+
+measure Account.'Total Accounts' = DISTINCTCOUNT('Account'[account_id])
+    formatString: #,0
+    description: Count of unique accounts.
+
+measure Subscription.'Active Subscriptions' = CALCULATE(DISTINCTCOUNT('Subscription'[subscription_id]), 'Subscription'[status] = "Active")
+    formatString: #,0
+    description: Count of active subscriptions.
+
+measure Subscription.'Monthly Recurring Revenue' = SUM('Subscription'[monthly_recurring_revenue])
+    formatString: $#,0
+    description: Sum of monthly recurring revenue across subscriptions.
+
+measure 'Network Asset'.'Network Assets' = DISTINCTCOUNT('Network Asset'[network_asset_id])
+    formatString: #,0
+    description: Count of network assets.
+
+measure Incident.'Open Incidents' = CALCULATE(DISTINCTCOUNT('Incident'[incident_id]), 'Incident'[status] <> "Resolved")
+    formatString: #,0
+    description: Count of incidents that are not resolved.
+
+measure Incident.'High Severity Incidents' = CALCULATE(DISTINCTCOUNT('Incident'[incident_id]), 'Incident'[severity] = "High")
+    formatString: #,0
+    description: Count of high severity incidents.
+
+measure Incident.'Average Incident Resolution Hours' = AVERAGEX('Incident', DATEDIFF('Incident'[start_time], 'Incident'[resolution_time], MINUTE) / 60.0)
+    formatString: 0.00
+    description: Average time from incident start to resolution in hours, computed from minute-level DATEDIFF so partial hours are not truncated.
+
+measure 'Telemetry Event'.'Telemetry Events' = COUNTROWS('Telemetry Event')
+    formatString: #,0
+    description: Count of telemetry events.
+
+measure 'Telemetry Event'.'Critical Telemetry Events' = CALCULATE(COUNTROWS('Telemetry Event'), 'Telemetry Event'[severity_band] = "Critical")
+    formatString: #,0
+    description: Count of critical telemetry events.
+
+measure 'Telemetry Event'.'Average Latency' = CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "latency_ms")
+    formatString: 0.0 ms
+    description: Average latency in milliseconds.
+
+measure 'Telemetry Event'.'Average Packet Loss' = CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "packet_loss_pct")
+    formatString: 0.00"%"
+    description: >
+      Average packet loss, already stored in source data as a percentage-point value
+      (e.g. 2.5 means 2.5%). Do not use a 0.00% format string here - that would divide by
+      100 a second time and inflate the displayed value 100x.
+
+measure 'Support Case'.'Support Cases' = DISTINCTCOUNT('Support Case'[case_id])
+    formatString: #,0
+    description: Count of support cases.
+
+measure 'Support Case'.'Escalated Cases' = CALCULATE(DISTINCTCOUNT('Support Case'[case_id]), 'Support Case'[case_status] = "Escalated")
+    formatString: #,0
+    description: Count of escalated support cases.
+
+measure 'Support Case'.'Average Sentiment' = AVERAGE('Support Case'[sentiment_score])
+    formatString: 0.00
+    description: Average synthetic support sentiment score.
+
+measure 'Work Order'.'Work Orders' = DISTINCTCOUNT('Work Order'[work_order_id])
+    formatString: #,0
+    description: Count of work orders.
+
+measure 'Work Order'.'P1 Work Orders' = CALCULATE(DISTINCTCOUNT('Work Order'[work_order_id]), 'Work Order'[priority] = "P1")
+    formatString: #,0
+    description: Count of P1 work orders.
+
+measure 'SLA Exposure'.'SLA Exposure Amount' = SUM('SLA Exposure'[exposure_amount])
+    formatString: $#,0
+    description: Estimated SLA exposure in CAD.
+
+measure 'Churn Risk'.'High Churn Risk Customers' = CALCULATE(DISTINCTCOUNT('Churn Risk'[customer_id]), 'Churn Risk'[risk_band] = "High")
+    formatString: #,0
+    description: Count of customers with high churn risk.
+
+measure 'Churn Risk'.'Average Churn Risk Score' = AVERAGE('Churn Risk'[risk_score])
+    formatString: 0.000
+    description: Average synthetic churn-risk score.
+
+// KPI catalog measures backed by the incident impact bridge tables (see
+// data_contracts/bronze_tables.yml: raw_bridge_incident_asset, raw_bridge_incident_service).
+
+measure 'Bridge Incident Service'.'Affected Subscribers' = DISTINCTCOUNT('Bridge Incident Service'[service_instance_id])
+    formatString: #,0
+    description: Count of service instances impacted by the incidents in the current filter context, via the incident-to-service bridge.
+
+measure 'Bridge Incident Asset'.'Affected Network Assets' = DISTINCTCOUNT('Bridge Incident Asset'[network_asset_id])
+    formatString: #,0
+    description: Count of network assets impacted by the incidents in the current filter context, via the incident-to-asset bridge.
+
+measure 'Support Case'.'Complaint Rate per 1000 Subscribers' =
+    DIVIDE([Support Cases], [Active Subscriptions] / 1000.0)
+    formatString: 0.00
+    description: Support cases per 1,000 active subscriptions, per the KPI catalog definition.
+
+measure 'Work Order'.'Dispatch Priority Score' =
+    VAR SeverityWeight = SWITCH(SELECTEDVALUE('Incident'[severity]), "High", 30, "Medium", 15, 5)
+    VAR AffectedSubscriberWeight = MIN(50, [Affected Subscribers] / 10.0)
+    VAR SlaWeight = MIN(25, DIVIDE([SLA Exposure Amount], 100.0))
+    RETURN SeverityWeight + AffectedSubscriberWeight + SlaWeight
+    formatString: 0.0
+    description: Weighted dispatch priority score per the KPI catalog formula (severity + affected subscribers + SLA exposure).
+
+// OperationsIQ-inspired evidence trail measures (raw_investigations).
+
+measure Investigation.'Investigations' = DISTINCTCOUNT('Investigation'[investigation_id])
+    formatString: #,0
+    description: Count of saved evidence artifacts (investigations) in the current filter context.
+
+measure Investigation.'Confirmed Investigations' = CALCULATE(DISTINCTCOUNT('Investigation'[investigation_id]), 'Investigation'[status] = "Confirmed")
+    formatString: #,0
+    description: Count of investigations whose finding has been confirmed against the bridge tables.
+

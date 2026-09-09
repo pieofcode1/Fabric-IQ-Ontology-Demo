@@ -1,0 +1,121 @@
+technician_id,technician_name,home_region,skill_set,shift,availability_status,source_system,ingestion_timestamp,ingestion_date,source_file,batch_id
+TECH-00001,Technician 00001,Brampton,IP Network|Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00002,Technician 00002,Mississauga,Cable|Customer Premise,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00003,Technician 00003,Toronto Downtown,RAN|IP Network|Customer Premise,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00004,Technician 00004,Toronto West,Customer Premise|Fiber|Cable,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00005,Technician 00005,Mississauga,Customer Premise|IP Network|RAN,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00006,Technician 00006,Toronto West,Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00007,Technician 00007,Toronto West,RAN,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00008,Technician 00008,Toronto Downtown,IP Network|Fiber,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00009,Technician 00009,Ottawa Central,Cable,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00010,Technician 00010,Brampton,Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00011,Technician 00011,Toronto West,Cable|RAN|IP Network,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00012,Technician 00012,Brampton,IP Network|Fiber,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00013,Technician 00013,Brampton,IP Network,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00014,Technician 00014,Toronto West,Fiber,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00015,Technician 00015,Toronto Downtown,IP Network|Cable|Customer Premise,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00016,Technician 00016,Toronto Downtown,Fiber,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00017,Technician 00017,Toronto West,IP Network,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00018,Technician 00018,Mississauga,Cable|RAN|IP Network,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00019,Technician 00019,Toronto West,Fiber|Customer Premise,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00020,Technician 00020,Toronto Downtown,RAN|Cable|Customer Premise,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00021,Technician 00021,Brampton,IP Network|Customer Premise|RAN,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00022,Technician 00022,Ottawa Central,RAN|Fiber|Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00023,Technician 00023,Brampton,Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00024,Technician 00024,Ottawa Central,RAN|IP Network|Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00025,Technician 00025,Mississauga,Cable,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00026,Technician 00026,Toronto Downtown,Fiber|RAN,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00027,Technician 00027,Brampton,RAN,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00028,Technician 00028,Brampton,Fiber|Cable|RAN,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00029,Technician 00029,Toronto West,Fiber,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00030,Technician 00030,Ottawa Central,Cable|RAN,On Call,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00031,Technician 00031,Brampton,Customer Premise|IP Network|Cable,Morning,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00032,Technician 00032,Brampton,RAN|Fiber|Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00033,Technician 00033,Toronto Downtown,Customer Premise|IP Network,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00034,Technician 00034,Ottawa Central,Cable,Morning,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00035,Technician 00035,Toronto Downtown,Customer Premise|IP Network,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00036,Technician 00036,Brampton,Fiber|RAN|Customer Premise,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00037,Technician 00037,Mississauga,Fiber|Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00038,Technician 00038,Ottawa Central,Cable|Fiber,Night,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00039,Technician 00039,Toronto West,Fiber|RAN|Cable,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00040,Technician 00040,Ottawa Central,Fiber|Cable|Customer Premise,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00041,Technician 00041,Brampton,Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00042,Technician 00042,Brampton,Cable|IP Network|RAN,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00043,Technician 00043,Toronto Downtown,Fiber|IP Network,Morning,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00044,Technician 00044,Mississauga,IP Network,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00045,Technician 00045,Ottawa Central,Cable,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00046,Technician 00046,Toronto West,Fiber|RAN|IP Network,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00047,Technician 00047,Mississauga,RAN|Cable|IP Network,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00048,Technician 00048,Mississauga,Fiber|RAN,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00049,Technician 00049,Toronto Downtown,Customer Premise|RAN,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00050,Technician 00050,Brampton,IP Network|Customer Premise,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00051,Technician 00051,Mississauga,IP Network|Customer Premise,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00052,Technician 00052,Brampton,Customer Premise|IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00053,Technician 00053,Ottawa Central,Cable|Customer Premise,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00054,Technician 00054,Ottawa Central,IP Network|Fiber,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00055,Technician 00055,Toronto Downtown,Fiber,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00056,Technician 00056,Toronto West,Cable|Fiber,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00057,Technician 00057,Mississauga,Cable|IP Network,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00058,Technician 00058,Mississauga,IP Network|Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00059,Technician 00059,Toronto Downtown,Fiber|IP Network|Customer Premise,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00060,Technician 00060,Brampton,IP Network|Cable,On Call,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00061,Technician 00061,Toronto Downtown,IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00062,Technician 00062,Mississauga,IP Network|Cable,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00063,Technician 00063,Brampton,RAN|Fiber|Customer Premise,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00064,Technician 00064,Mississauga,Customer Premise|Cable|RAN,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00065,Technician 00065,Mississauga,RAN|Cable,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00066,Technician 00066,Mississauga,Customer Premise|Cable,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00067,Technician 00067,Ottawa Central,IP Network|Cable,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00068,Technician 00068,Brampton,Fiber|RAN,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00069,Technician 00069,Ottawa Central,Fiber,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00070,Technician 00070,Mississauga,IP Network|Fiber,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00071,Technician 00071,Ottawa Central,RAN|Cable|Customer Premise,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00072,Technician 00072,Mississauga,Fiber,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00073,Technician 00073,Brampton,RAN|Customer Premise|IP Network,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00074,Technician 00074,Toronto West,Fiber,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00075,Technician 00075,Ottawa Central,IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00076,Technician 00076,Brampton,Fiber|IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00077,Technician 00077,Mississauga,Cable|IP Network,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00078,Technician 00078,Toronto Downtown,RAN,Night,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00079,Technician 00079,Toronto West,Customer Premise|IP Network,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00080,Technician 00080,Mississauga,Fiber|Cable,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00081,Technician 00081,Toronto West,RAN,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00082,Technician 00082,Brampton,Fiber|Cable,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00083,Technician 00083,Brampton,RAN|IP Network,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00084,Technician 00084,Ottawa Central,RAN|Cable,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00085,Technician 00085,Toronto West,Customer Premise|Fiber,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00086,Technician 00086,Mississauga,Fiber|IP Network,On Call,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00087,Technician 00087,Brampton,Customer Premise|RAN,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00088,Technician 00088,Toronto West,Fiber,Afternoon,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00089,Technician 00089,Mississauga,IP Network|Fiber|RAN,Afternoon,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00090,Technician 00090,Brampton,Cable|RAN|Fiber,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00091,Technician 00091,Toronto Downtown,Customer Premise,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00092,Technician 00092,Toronto Downtown,Customer Premise|Cable,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00093,Technician 00093,Brampton,Cable|IP Network,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00094,Technician 00094,Toronto Downtown,Customer Premise|IP Network,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00095,Technician 00095,Ottawa Central,IP Network|Fiber,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00096,Technician 00096,Mississauga,Cable|IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00097,Technician 00097,Brampton,Fiber|Cable|IP Network,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00098,Technician 00098,Brampton,IP Network,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00099,Technician 00099,Brampton,IP Network|Fiber|RAN,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00100,Technician 00100,Ottawa Central,RAN,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00101,Technician 00101,Brampton,IP Network,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00102,Technician 00102,Brampton,Fiber|IP Network,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00103,Technician 00103,Toronto Downtown,Customer Premise|IP Network,Afternoon,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00104,Technician 00104,Toronto West,IP Network|Customer Premise,Morning,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00105,Technician 00105,Brampton,RAN|Customer Premise|IP Network,Night,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00106,Technician 00106,Ottawa Central,IP Network|RAN,Night,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00107,Technician 00107,Toronto Downtown,IP Network,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00108,Technician 00108,Toronto West,IP Network|Fiber,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00109,Technician 00109,Ottawa Central,IP Network,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00110,Technician 00110,Ottawa Central,RAN,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00111,Technician 00111,Ottawa Central,IP Network|Customer Premise|Fiber,Morning,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00112,Technician 00112,Toronto Downtown,Cable,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00113,Technician 00113,Ottawa Central,RAN,Afternoon,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00114,Technician 00114,Mississauga,Cable|RAN,On Call,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00115,Technician 00115,Toronto Downtown,IP Network,Night,Assigned,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00116,Technician 00116,Mississauga,RAN|Fiber|Customer Premise,On Call,Off Shift,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00117,Technician 00117,Toronto Downtown,Cable|Fiber|RAN,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00118,Technician 00118,Toronto West,RAN|IP Network,Night,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00119,Technician 00119,Ottawa Central,IP Network,Morning,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+TECH-00120,Technician 00120,Toronto Downtown,Customer Premise|Fiber|RAN,On Call,Available,field_ops,2026-06-16T12:00:00-04:00,2026-06-16,raw_technicians.csv,4ee9f263-c82d-417d-bbea-199a88e565ac

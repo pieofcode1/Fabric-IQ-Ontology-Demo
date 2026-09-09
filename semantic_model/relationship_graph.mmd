@@ -1,0 +1,39 @@
+flowchart LR
+    Account["Account"]
+    Customer["Customer"]
+    Product["Product"]
+    Subscription["Subscription"]
+    Device["Device"]
+    ServiceInstance["Service Instance"]
+    NetworkAsset["Network Asset"]
+    TelemetryEvent["Telemetry Event"]
+    Alarm["Alarm"]
+    Incident["Incident"]
+    SupportCase["Support Case"]
+    Technician["Technician"]
+    WorkOrder["Work Order"]
+    SlaExposure["SLA Exposure"]
+    ChurnRisk["Churn Risk"]
+
+    Account --> Customer
+    Account --> Subscription
+    Product --> Subscription
+    Subscription --> Device
+    Subscription --> ServiceInstance
+    Device --> ServiceInstance
+    NetworkAsset --> ServiceInstance
+    NetworkAsset --> Incident
+    NetworkAsset --> TelemetryEvent
+    TelemetryEvent --> Alarm
+    Incident --> Alarm
+    Customer --> SupportCase
+    Account --> SupportCase
+    ServiceInstance --> SupportCase
+    Incident --> SupportCase
+    Incident --> WorkOrder
+    NetworkAsset --> WorkOrder
+    Technician --> WorkOrder
+    Incident --> SlaExposure
+    Account --> SlaExposure
+    Customer --> ChurnRisk
+

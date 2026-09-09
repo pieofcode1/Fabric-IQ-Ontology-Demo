@@ -1,0 +1,19 @@
+erDiagram
+    CUSTOMER ||--o{ ACCOUNT : owns
+    ACCOUNT ||--o{ SUBSCRIPTION : has
+    SUBSCRIPTION }o--|| PRODUCT : includes
+    SUBSCRIPTION ||--|| SERVICE_INSTANCE : delivered_as
+    SERVICE_INSTANCE }o--|| DEVICE : uses
+    SERVICE_INSTANCE }o--|| NETWORK_ASSET : served_by
+    NETWORK_ASSET ||--o{ TELEMETRY_EVENT : emits
+    NETWORK_ASSET ||--o{ ALARM : triggers
+    ALARM }o--|| INCIDENT : contributes_to
+    INCIDENT }o--o{ NETWORK_ASSET : affects
+    INCIDENT }o--o{ SERVICE_INSTANCE : impacts
+    CUSTOMER ||--o{ SUPPORT_CASE : opens
+    SUPPORT_CASE }o--|| INCIDENT : linked_to
+    INCIDENT ||--o{ WORK_ORDER : remediated_by
+    WORK_ORDER }o--|| TECHNICIAN : assigned_to
+    INCIDENT ||--o{ SLA_EXPOSURE : creates
+    CUSTOMER ||--o{ CHURN_RISK : has
+

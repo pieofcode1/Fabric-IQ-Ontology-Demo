@@ -1,0 +1,36 @@
+seed: 20260616
+scenario_id: ontario_5g_home_internet_degradation
+scenario_name: Ontario 5G Home Internet Degradation
+regions:
+  - Toronto West
+  - Toronto Downtown
+  - Mississauga
+  - Brampton
+  - Ottawa Central
+service_types:
+  - 5G Home Internet
+  - Mobile Data
+  - Fiber Internet
+scale:
+  customers: 10000
+  accounts: 7500
+  subscriptions: 15000
+  network_assets: 300
+  telemetry_events: 250000
+  alarms: 500
+  incidents: 25
+  support_cases: 2000
+  work_orders: 500
+  technicians: 120
+  sla_exposure: 300
+incident:
+  root_cause: Backhaul congestion after delayed capacity upgrade
+  primary_region: Toronto West
+  start_time: "2026-06-16T09:30:00-04:00"
+  detection_lag_minutes: 18
+  ticket_lag_min_minutes: 15
+  ticket_lag_max_minutes: 90
+  affected_service_type: 5G Home Internet
+output:
+  format: csv
+

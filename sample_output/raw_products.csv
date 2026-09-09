@@ -1,0 +1,8 @@
+product_id,product_name,service_type,monthly_price,product_family,status,source_system,ingestion_timestamp,ingestion_date,source_file,batch_id
+PROD-5GHI-001,5G Home Internet 100,5G Home Internet,65.0,5G Home Internet,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-5GHI-002,5G Home Internet Unlimited,5G Home Internet,85.0,5G Home Internet,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-MOB-001,Infinite Mobile 50GB,Mobile Data,75.0,Mobile Data,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-MOB-002,Infinite Mobile 150GB,Mobile Data,105.0,Mobile Data,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-FIB-001,Fiber Internet 500,Fiber Internet,90.0,Fiber Internet,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-FIB-002,Fiber Internet Gigabit,Fiber Internet,120.0,Fiber Internet,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac
+PROD-TV-001,Ignite TV Popular,TV,70.0,TV,Active,product_catalog,2026-06-16T12:00:00-04:00,2026-06-16,raw_products.csv,4ee9f263-c82d-417d-bbea-199a88e565ac

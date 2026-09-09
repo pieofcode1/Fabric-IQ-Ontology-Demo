@@ -1,0 +1,324 @@
+tables:
+  raw_accounts:
+    grain: one row per fabricated account
+    key: account_id
+    columns:
+      - account_id
+      - account_name
+      - account_type
+      - account_tier
+      - industry
+      - city
+      - province
+      - created_date
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_customers:
+    grain: one row per fabricated customer
+    key: customer_id
+    columns:
+      - customer_id
+      - account_id
+      - customer_name
+      - customer_type
+      - segment
+      - city
+      - province
+      - postal_code_prefix
+      - created_date
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_products:
+    grain: one row per fabricated product or plan
+    key: product_id
+    columns:
+      - product_id
+      - product_name
+      - service_type
+      - monthly_price
+      - product_family
+      - status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_subscriptions:
+    grain: one row per fabricated product subscription
+    key: subscription_id
+    columns:
+      - subscription_id
+      - account_id
+      - product_id
+      - service_type
+      - start_date
+      - status
+      - monthly_recurring_revenue
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_devices:
+    grain: one row per fabricated customer-premise or mobile device
+    key: device_id
+    columns:
+      - device_id
+      - subscription_id
+      - device_type
+      - model
+      - firmware_version
+      - activation_date
+      - device_status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_service_instances:
+    grain: one row per fabricated delivered service instance
+    key: service_instance_id
+    columns:
+      - service_instance_id
+      - subscription_id
+      - device_id
+      - network_asset_id
+      - service_type
+      - access_type
+      - activation_date
+      - status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_network_assets:
+    grain: one row per fabricated network asset
+    key: network_asset_id
+    columns:
+      - network_asset_id
+      - parent_asset_id
+      - asset_type
+      - asset_name
+      - region
+      - city
+      - latitude
+      - longitude
+      - vendor
+      - technology
+      - operational_status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_telemetry_events:
+    grain: one row per network metric event
+    key: telemetry_event_id
+    columns:
+      - telemetry_event_id
+      - network_asset_id
+      - event_time
+      - metric_name
+      - metric_value
+      - metric_unit
+      - severity_band
+      - scenario_id
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_alarms:
+    grain: one row per fabricated network alarm
+    key: alarm_id
+    columns:
+      - alarm_id
+      - telemetry_event_id
+      - network_asset_id
+      - incident_id
+      - alarm_type
+      - severity
+      - status
+      - raised_time
+      - cleared_time
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_incidents:
+    grain: one row per fabricated operational incident
+    key: incident_id
+    columns:
+      - incident_id
+      - network_asset_id
+      - scenario_id
+      - incident_type
+      - root_cause
+      - severity
+      - status
+      - start_time
+      - detected_time
+      - resolution_time
+      - region
+      - affected_service_type
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_support_cases:
+    grain: one row per fabricated support case
+    key: case_id
+    columns:
+      - case_id
+      - customer_id
+      - account_id
+      - service_instance_id
+      - incident_id
+      - opened_time
+      - closed_time
+      - channel
+      - case_reason
+      - sentiment_score
+      - case_status
+      - customer_tier
+      - scenario_id
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_bridge_incident_asset:
+    grain: one row per (incident_id, network_asset_id) impact pair
+    key: [incident_id, network_asset_id]
+    description: >
+      Explicit incident-to-asset causal bridge. The root_cause row is the asset the incident
+      started on; downstream rows are assets whose parent_asset_id points to the root_cause
+      asset (e.g. cell sectors dependent on a congested backhaul link). Silver/Gold and the
+      Fabric IQ ontology must join through this table instead of relying only on
+      raw_incidents.network_asset_id, which only captures the single root-cause asset.
+    columns:
+      - incident_id
+      - network_asset_id
+      - impact_role
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_bridge_incident_service:
+    grain: one row per (incident_id, service_instance_id) impact pair
+    key: [incident_id, service_instance_id]
+    description: >
+      Explicit incident-to-service-instance causal bridge, derived from raw_bridge_incident_asset
+      plus the incident's affected_service_type. This is what support cases, SLA exposure, and
+      churn-risk lift should join through to determine "who is affected by this incident".
+    columns:
+      - incident_id
+      - service_instance_id
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_technicians:
+    grain: one row per fabricated field technician
+    key: technician_id
+    columns:
+      - technician_id
+      - technician_name
+      - home_region
+      - skill_set
+      - shift
+      - availability_status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_work_orders:
+    grain: one row per fabricated work order
+    key: work_order_id
+    columns:
+      - work_order_id
+      - incident_id
+      - network_asset_id
+      - technician_id
+      - priority
+      - status
+      - created_time
+      - scheduled_time
+      - completed_time
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_sla_exposure:
+    grain: one row per fabricated SLA exposure estimate
+    key: exposure_id
+    columns:
+      - exposure_id
+      - incident_id
+      - account_id
+      - customer_tier
+      - breach_type
+      - exposure_amount
+      - currency
+      - exposure_status
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_churn_risk:
+    grain: one row per fabricated customer churn-risk score
+    key: risk_id
+    columns:
+      - risk_id
+      - customer_id
+      - risk_score
+      - risk_band
+      - primary_driver
+      - repeat_case_count
+      - model_version
+      - scored_time
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+  raw_investigations:
+    grain: one row per saved evidence artifact for a High severity incident
+    key: investigation_id
+    description: >
+      OperationsIQ-inspired "investigation" artifact: a durable snapshot of what was found and
+      how it was confirmed for a High severity incident, derived from raw_bridge_incident_asset,
+      raw_bridge_incident_service, raw_support_cases, and raw_sla_exposure rather than free text.
+      Demonstrates the "preserve the evidence" step of the demo narrative.
+    columns:
+      - investigation_id
+      - incident_id
+      - title
+      - summary
+      - affected_asset_count
+      - affected_service_count
+      - related_case_count
+      - sla_exposure_amount
+      - status
+      - created_time
+      - created_by
+      - source_system
+      - ingestion_timestamp
+      - ingestion_date
+      - source_file
+      - batch_id
+

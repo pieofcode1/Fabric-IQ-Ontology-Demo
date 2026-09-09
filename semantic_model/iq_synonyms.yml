@@ -1,0 +1,133 @@
+synonyms:
+  customer:
+    table: Customer
+    terms:
+      - subscriber
+      - end user
+      - household
+      - business customer
+      - impacted customer
+
+  account:
+    table: Account
+    terms:
+      - billing account
+      - enterprise account
+      - customer account
+      - premium customer
+      - business account
+
+  product:
+    table: Product
+    terms:
+      - plan
+      - offer
+      - service plan
+      - bundle
+
+  service:
+    table: Service Instance
+    terms:
+      - active service
+      - delivered service
+      - service instance
+      - access service
+
+  network:
+    table: Network Asset
+    terms:
+      - tower
+      - cell site
+      - sector
+      - antenna
+      - backhaul
+      - fiber node
+      - router
+      - CMTS
+
+  telemetry:
+    table: Telemetry Event
+    terms:
+      - network metric
+      - KPI
+      - latency
+      - packet loss
+      - throughput
+      - signal quality
+      - utilization
+
+  alarm:
+    table: Alarm
+    terms:
+      - alert
+      - anomaly
+      - threshold breach
+      - monitoring alert
+
+  incident:
+    table: Incident
+    terms:
+      - outage
+      - service degradation
+      - network issue
+      - service impact
+      - degradation event
+
+  support:
+    table: Support Case
+    terms:
+      - trouble ticket
+      - complaint
+      - customer call
+      - chat
+      - escalation
+      - support interaction
+
+  work_order:
+    table: Work Order
+    terms:
+      - dispatch
+      - field dispatch
+      - repair task
+      - remediation
+      - truck roll
+
+  technician:
+    table: Technician
+    terms:
+      - field tech
+      - engineer
+      - field resource
+      - technician resource
+
+  sla:
+    table: SLA Exposure
+    terms:
+      - SLA
+      - service credit
+      - credit exposure
+      - penalty
+      - customer credit
+
+  churn:
+    table: Churn Risk
+    terms:
+      - churn
+      - retention risk
+      - customer risk
+      - likelihood to leave
+
+question_patterns:
+  - question: Why are complaints rising in Toronto West?
+    intended_path: Support Case -> Incident -> Network Asset -> Telemetry Event
+  - question: Which towers are causing 5G Home Internet issues?
+    intended_path: Network Asset -> Incident -> Service Instance -> Subscription -> Product
+  - question: Which enterprise customers are affected by this outage?
+    intended_path: Incident -> Support Case -> Account -> Customer
+  - question: What is the SLA exposure for unresolved incidents?
+    intended_path: Incident -> SLA Exposure -> Account
+  - question: Which work orders should be prioritized?
+    intended_path: Work Order -> Incident -> SLA Exposure -> Support Case
+  - question: Which customers have high churn risk after repeat service issues?
+    intended_path: Churn Risk -> Customer -> Support Case -> Incident
+

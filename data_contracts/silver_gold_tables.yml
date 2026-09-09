@@ -1,0 +1,64 @@
+silver_tables:
+  customer:
+    grain: one conformed customer
+    key: customer_id
+  account:
+    grain: one account
+    key: account_id
+  subscription:
+    grain: one subscription
+    key: subscription_id
+  service_instance:
+    grain: one active or historical service instance
+    key: service_instance_id
+  network_asset:
+    grain: one conformed network asset
+    key: network_asset_id
+  telemetry_event:
+    grain: one validated telemetry event
+    key: telemetry_event_id
+  incident:
+    grain: one operational incident
+    key: incident_id
+  support_case:
+    grain: one support case
+    key: case_id
+  work_order:
+    grain: one work order
+    key: work_order_id
+
+gold_tables:
+  dim_customer:
+    source: customer
+    grain: one customer
+  dim_account:
+    source: account
+    grain: one account
+  dim_product:
+    source: product
+    grain: one product or plan
+  dim_service_instance:
+    source: service_instance
+    grain: one service instance
+  dim_network_asset:
+    source: network_asset
+    grain: one network asset
+  fact_network_telemetry_hourly:
+    source: telemetry_event
+    grain: one network asset, metric, and hour
+  fact_support_case:
+    source: support_case
+    grain: one support case
+  fact_incident:
+    source: incident
+    grain: one incident
+  fact_work_order:
+    source: work_order
+    grain: one work order
+  agg_customer_impact_by_incident:
+    source: incident, service_instance, support_case, sla_exposure
+    grain: one incident and customer segment
+  agg_dispatch_priority:
+    source: work_order, incident, sla_exposure
+    grain: one work order
+

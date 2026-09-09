@@ -1,0 +1,770 @@
+model:
+  name: Nimbus Telecom Service Assurance IQ Model
+  description: IQ-friendly semantic model for fabricated telecom service assurance, network operations, service support, and customer impact analytics.
+  source_layer: Gold Lakehouse or Warehouse
+  source_note: >
+    Table sources below reference raw_* names to match the current generator output 1:1 for local
+    development. Before Direct Lake deployment, materialize the equivalent Gold tables
+    (dim_/fact_/bridge_ naming per docs/05-fabric-implementation-plan.md) and repoint `source`.
+  recommended_storage_mode: Direct Lake
+  default_date_table: Date
+
+tables:
+  Date:
+    description: Shared calendar table used for reporting by opened, incident, telemetry, and work-order dates.
+    type: dimension
+    key: date
+    columns:
+      date: Date key.
+      year: Calendar year.
+      month: Calendar month number.
+      month_name: Calendar month name.
+      week_start_date: Week start date.
+      day_name: Day name.
+
+  Account:
+    source: raw_accounts
+    type: dimension
+    key: account_id
+    description: Billing or enterprise account associated with customers and subscriptions.
+    business_terms:
+      - account
+      - billing account
+      - enterprise account
+      - customer account
+    columns:
+      account_id: Unique fabricated account identifier.
+      account_name: Account display name.
+      account_type: Consumer, Small Business, Enterprise, or Public Sector.
+      account_tier: Standard, Premium, or Enterprise.
+      industry: Fabricated industry classification.
+      city: Account city.
+      province: Account province.
+
+  Customer:
+    source: raw_customers
+    type: dimension
+    key: customer_id
+    description: Residential or business customer using telecom services.
+    business_terms:
+      - customer
+      - subscriber
+      - end user
+      - household
+      - business customer
+    columns:
+      customer_id: Unique fabricated customer identifier.
+      account_id: Related account identifier.
+      customer_name: Fabricated customer name.
+      customer_type: Consumer or Business.
+      segment: Residential, Small Business, Enterprise, or Public Sector.
+      city: Customer city.
+      province: Customer province.
+      postal_code_prefix: Fabricated postal code prefix.
+
+  Product:
+    source: raw_products
+    type: dimension
+    key: product_id
+    description: Telecom product, service plan, or bundle.
+    business_terms:
+      - product
+      - plan
+      - offer
+      - service plan
+    columns:
+      product_id: Product identifier.
+      product_name: Product display name.
+      service_type: Mobile Data, 5G Home Internet, Fiber Internet, or TV.
+      monthly_price: Monthly recurring price in CAD.
+      product_family: Product family.
+
+  Subscription:
+    source: raw_subscriptions
+    type: bridge
+    key: subscription_id
+    description: Product subscription connecting accounts to purchased telecom services.
+    business_terms:
+      - subscription
+      - plan subscription
+      - active service
+    columns:
+      subscription_id: Unique subscription identifier.
+      account_id: Related account identifier.
+      product_id: Related product identifier.
+      service_type: Service type copied from product.
+      start_date: Subscription start date.
+      status: Subscription status.
+      monthly_recurring_revenue: Monthly recurring revenue in CAD.
+
+  Device:
+    source: raw_devices
+    type: dimension
+    key: device_id
+    description: Handset, gateway, modem, router, or customer-premise equipment.
+    business_terms:
+      - device
+      - handset
+      - modem
+      - gateway
+      - router
+    columns:
+      device_id: Unique fabricated device identifier.
+      subscription_id: Related subscription identifier.
+      device_type: Device category.
+      model: Fabricated device model.
+      firmware_version: Fabricated firmware version.
+      activation_date: Device activation date.
+      device_status: Current device status.
+
+  Service Instance:
+    source: raw_service_instances
+    type: bridge
+    key: service_instance_id
+    description: Delivered service instance linking subscription, device, and serving network asset.
+    business_terms:
+      - service instance
+      - delivered service
+      - active service
+      - access service
+    columns:
+      service_instance_id: Unique service instance identifier.
+      subscription_id: Related subscription identifier.
+      device_id: Related device identifier.
+      network_asset_id: Serving network asset identifier.
+      service_type: Service type.
+      access_type: Access technology or delivery mode.
+      activation_date: Service activation date.
+      status: Service status.
+
+  Network Asset:
+    source: raw_network_assets
+    type: dimension
+    key: network_asset_id
+    description: Telecom network asset such as cell site, sector, fiber node, CMTS, router, or backhaul link.
+    business_terms:
+      - network asset
+      - tower
+      - cell site
+      - sector
+      - fiber node
+      - router
+      - backhaul
+    columns:
+      network_asset_id: Unique network asset identifier.
+      parent_asset_id: Parent asset identifier.
+      asset_type: Cell Site, Cell Sector, Backhaul Link, Fiber Node, Router, or CMTS.
+      asset_name: Network asset display name.
+      region: Operating region.
+      city: Asset city.
+      latitude: Approximate fabricated latitude.
+      longitude: Approximate fabricated longitude.
+      vendor: Fabricated vendor name.
+      technology: Network technology.
+      operational_status: Active, Maintenance, or Degraded.
+
+  Incident:
+    source: raw_incidents
+    type: fact
+    key: incident_id
+    description: Network or service incident affecting assets, services, or customers.
+    business_terms:
+      - incident
+      - outage
+      - service degradation
+      - network issue
+      - event
+    columns:
+      incident_id: Unique incident identifier.
+      network_asset_id: Primary affected network asset.
+      scenario_id: Synthetic scenario identifier.
+      incident_type: Incident category.
+      root_cause: Fabricated root cause.
+      severity: Incident severity.
+      status: Incident status.
+      start_time: Incident start timestamp.
+      detected_time: Incident detection timestamp.
+      resolution_time: Incident resolution timestamp.
+      region: Affected region.
+      affected_service_type: Affected service type.
+
+  Telemetry Event:
+    source: raw_telemetry_events
+    type: fact
+    key: telemetry_event_id
+    description: Network telemetry measurement emitted by a network asset.
+    business_terms:
+      - telemetry
+      - metric
+      - network KPI
+      - latency
+      - packet loss
+      - throughput
+      - signal quality
+    columns:
+      telemetry_event_id: Unique telemetry event identifier.
+      network_asset_id: Related network asset identifier.
+      event_time: Telemetry event timestamp.
+      metric_name: Metric name.
+      metric_value: Metric value.
+      metric_unit: Metric unit.
+      severity_band: Normal, Warning, or Critical.
+      scenario_id: Synthetic scenario identifier.
+
+  Alarm:
+    source: raw_alarms
+    type: fact
+    key: alarm_id
+    description: Threshold or anomaly alarm generated from telemetry.
+    business_terms:
+      - alarm
+      - alert
+      - anomaly
+      - threshold breach
+    columns:
+      alarm_id: Unique alarm identifier.
+      telemetry_event_id: Related telemetry event.
+      network_asset_id: Related network asset.
+      incident_id: Related incident.
+      alarm_type: Alarm category.
+      severity: Alarm severity.
+      status: Alarm status.
+      raised_time: Alarm raised timestamp.
+      cleared_time: Alarm cleared timestamp.
+
+  Support Case:
+    source: raw_support_cases
+    type: fact
+    key: case_id
+    description: Customer support interaction related to service quality, outage, or complaint.
+    business_terms:
+      - support case
+      - trouble ticket
+      - complaint
+      - customer call
+      - chat
+      - escalation
+    columns:
+      case_id: Unique support case identifier.
+      customer_id: Related customer.
+      account_id: Related account.
+      service_instance_id: Related service instance.
+      incident_id: Related incident.
+      opened_time: Case opened timestamp.
+      closed_time: Case closed timestamp.
+      channel: Phone, Chat, Retail, Social, or Email.
+      case_reason: Case reason.
+      sentiment_score: Synthetic sentiment score.
+      case_status: Case status.
+      customer_tier: Customer tier at case time.
+
+  Technician:
+    source: raw_technicians
+    type: dimension
+    key: technician_id
+    description: Field or operations technician assigned to remediation work.
+    business_terms:
+      - technician
+      - field tech
+      - engineer
+      - field resource
+    columns:
+      technician_id: Unique technician identifier.
+      technician_name: Fabricated technician name.
+      home_region: Technician home region.
+      skill_set: Pipe-delimited skills.
+      shift: Assigned shift.
+      availability_status: Availability status.
+
+  Work Order:
+    source: raw_work_orders
+    type: fact
+    key: work_order_id
+    description: Field or NOC remediation work tied to an incident and network asset.
+    business_terms:
+      - work order
+      - dispatch
+      - field dispatch
+      - repair task
+      - remediation
+    columns:
+      work_order_id: Unique work order identifier.
+      incident_id: Related incident.
+      network_asset_id: Related network asset.
+      technician_id: Assigned technician.
+      priority: P1, P2, or P3.
+      status: Work order status.
+      created_time: Work order created timestamp.
+      scheduled_time: Scheduled work timestamp.
+      completed_time: Completed timestamp.
+
+  SLA Exposure:
+    source: raw_sla_exposure
+    type: fact
+    key: exposure_id
+    description: Estimated customer credit or penalty exposure from service-impacting incidents.
+    business_terms:
+      - SLA
+      - SLA exposure
+      - credit exposure
+      - penalty
+      - service credit
+    columns:
+      exposure_id: Unique exposure identifier.
+      incident_id: Related incident.
+      account_id: Related account.
+      customer_tier: Customer tier.
+      breach_type: Availability, latency, or resolution-time breach.
+      exposure_amount: Estimated exposure amount.
+      currency: Currency code.
+      exposure_status: Estimated, approved, or waived.
+
+  Churn Risk:
+    source: raw_churn_risk
+    type: fact
+    key: risk_id
+    description: Synthetic customer churn-risk score and primary driver.
+    business_terms:
+      - churn
+      - churn risk
+      - retention risk
+      - customer risk
+    columns:
+      risk_id: Unique churn-risk row identifier.
+      customer_id: Related customer.
+      risk_score: Synthetic churn-risk score.
+      risk_band: Low, Medium, or High.
+      primary_driver: Main risk driver.
+      repeat_case_count: Count of related support cases.
+      model_version: Synthetic model version.
+      scored_time: Score timestamp.
+
+  Bridge Incident Asset:
+    source: raw_bridge_incident_asset
+    type: bridge
+    key: [incident_id, network_asset_id]
+    description: >
+      Causal bridge from an incident to every network asset it impacts (the root-cause asset
+      plus any dependent assets, e.g. cell sectors on a congested backhaul link). Use this table
+      - not Incident.network_asset_id alone - to answer "which assets does this incident affect".
+    business_terms:
+      - affected assets
+      - impacted network assets
+      - incident blast radius
+    columns:
+      incident_id: Related incident.
+      network_asset_id: Impacted network asset.
+      impact_role: root_cause or downstream.
+
+  Bridge Incident Service:
+    source: raw_bridge_incident_service
+    type: bridge
+    key: [incident_id, service_instance_id]
+    description: >
+      Causal bridge from an incident to every service instance it impacts, derived from
+      Bridge Incident Asset plus the incident's affected service type. Use this table to answer
+      "which customers/services are affected by this incident".
+    business_terms:
+      - affected customers
+      - affected subscribers
+      - impacted services
+      - incident blast radius
+    columns:
+      incident_id: Related incident.
+      service_instance_id: Impacted service instance.
+
+  Investigation:
+    source: raw_investigations
+    type: fact
+    key: investigation_id
+    description: >
+      OperationsIQ-inspired saved evidence artifact for a High severity incident: what was found,
+      how it was confirmed, and the impact counts it was confirmed against. One per High severity
+      incident. This is the "preserve the evidence" step of the demo narrative.
+    business_terms:
+      - investigation
+      - evidence trail
+      - root cause finding
+      - saved case
+    columns:
+      investigation_id: Unique investigation identifier.
+      incident_id: Related incident.
+      title: Short investigation title.
+      summary: Plain-language finding, derived from the bridge tables and impact counts.
+      affected_asset_count: Count of bridged network assets, from Bridge Incident Asset.
+      affected_service_count: Count of bridged service instances, from Bridge Incident Service.
+      related_case_count: Count of support cases tied to the incident.
+      sla_exposure_amount: Total SLA exposure tied to the incident, in CAD.
+      status: Confirmed or In Progress.
+      created_time: Investigation creation timestamp.
+      created_by: Investigation author.
+
+relationships:
+  - name: Account to Customer
+    from_table: Customer
+    from_column: account_id
+    to_table: Account
+    to_column: account_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Customers belong to accounts.
+
+  - name: Account to Subscription
+    from_table: Subscription
+    from_column: account_id
+    to_table: Account
+    to_column: account_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Subscriptions are owned by accounts.
+
+  - name: Product to Subscription
+    from_table: Subscription
+    from_column: product_id
+    to_table: Product
+    to_column: product_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Subscriptions include products.
+
+  - name: Subscription to Device
+    from_table: Device
+    from_column: subscription_id
+    to_table: Subscription
+    to_column: subscription_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Devices are assigned to subscriptions.
+
+  - name: Subscription to Service Instance
+    from_table: Service Instance
+    from_column: subscription_id
+    to_table: Subscription
+    to_column: subscription_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Service instances realize subscriptions.
+
+  - name: Device to Service Instance
+    from_table: Service Instance
+    from_column: device_id
+    to_table: Device
+    to_column: device_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Service instances use devices.
+
+  - name: Network Asset to Service Instance
+    from_table: Service Instance
+    from_column: network_asset_id
+    to_table: Network Asset
+    to_column: network_asset_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Service instances are served by network assets.
+
+  - name: Network Asset to Incident
+    from_table: Incident
+    from_column: network_asset_id
+    to_table: Network Asset
+    to_column: network_asset_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents affect network assets.
+
+  - name: Network Asset to Telemetry Event
+    from_table: Telemetry Event
+    from_column: network_asset_id
+    to_table: Network Asset
+    to_column: network_asset_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Network assets emit telemetry events.
+
+  - name: Telemetry Event to Alarm
+    from_table: Alarm
+    from_column: telemetry_event_id
+    to_table: Telemetry Event
+    to_column: telemetry_event_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Alarms are raised from telemetry events.
+
+  - name: Incident to Alarm
+    from_table: Alarm
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Alarms contribute to incidents.
+
+  - name: Customer to Support Case
+    from_table: Support Case
+    from_column: customer_id
+    to_table: Customer
+    to_column: customer_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Customers open support cases.
+
+  - name: Account to Support Case
+    from_table: Support Case
+    from_column: account_id
+    to_table: Account
+    to_column: account_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Support cases are associated with accounts.
+
+  - name: Service Instance to Support Case
+    from_table: Support Case
+    from_column: service_instance_id
+    to_table: Service Instance
+    to_column: service_instance_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Support cases reference service instances.
+
+  - name: Incident to Support Case
+    from_table: Support Case
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Support cases are linked to incidents.
+
+  - name: Incident to Work Order
+    from_table: Work Order
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Work orders remediate incidents.
+
+  - name: Network Asset to Work Order
+    from_table: Work Order
+    from_column: network_asset_id
+    to_table: Network Asset
+    to_column: network_asset_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Work orders target network assets.
+
+  - name: Technician to Work Order
+    from_table: Work Order
+    from_column: technician_id
+    to_table: Technician
+    to_column: technician_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Work orders are assigned to technicians.
+
+  - name: Incident to SLA Exposure
+    from_table: SLA Exposure
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents create SLA exposure.
+
+  - name: Account to SLA Exposure
+    from_table: SLA Exposure
+    from_column: account_id
+    to_table: Account
+    to_column: account_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Accounts have SLA exposure.
+
+  - name: Customer to Churn Risk
+    from_table: Churn Risk
+    from_column: customer_id
+    to_table: Customer
+    to_column: customer_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Customers have churn-risk scores.
+
+  - name: Incident to Bridge Incident Asset
+    from_table: Bridge Incident Asset
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents impact network assets through the incident-asset bridge.
+
+  - name: Network Asset to Bridge Incident Asset
+    from_table: Bridge Incident Asset
+    from_column: network_asset_id
+    to_table: Network Asset
+    to_column: network_asset_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Network assets are impacted by incidents through the incident-asset bridge.
+
+  - name: Incident to Bridge Incident Service
+    from_table: Bridge Incident Service
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents impact service instances through the incident-service bridge.
+
+  - name: Service Instance to Bridge Incident Service
+    from_table: Bridge Incident Service
+    from_column: service_instance_id
+    to_table: Service Instance
+    to_column: service_instance_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Service instances are impacted by incidents through the incident-service bridge.
+
+  - name: Incident to Investigation
+    from_table: Investigation
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Investigations preserve the evidence for incidents.
+
+measures:
+  Total Customers:
+    table: Customer
+    dax: DISTINCTCOUNT('Customer'[customer_id])
+    description: Count of unique customers.
+
+  Total Accounts:
+    table: Account
+    dax: DISTINCTCOUNT('Account'[account_id])
+    description: Count of unique accounts.
+
+  Active Subscriptions:
+    table: Subscription
+    dax: CALCULATE(DISTINCTCOUNT('Subscription'[subscription_id]), 'Subscription'[status] = "Active")
+    description: Count of active subscriptions.
+
+  Monthly Recurring Revenue:
+    table: Subscription
+    dax: SUM('Subscription'[monthly_recurring_revenue])
+    format: $#,0
+    description: Sum of monthly recurring revenue across subscriptions.
+
+  Network Assets:
+    table: Network Asset
+    dax: DISTINCTCOUNT('Network Asset'[network_asset_id])
+    description: Count of network assets.
+
+  Open Incidents:
+    table: Incident
+    dax: CALCULATE(DISTINCTCOUNT('Incident'[incident_id]), 'Incident'[status] <> "Resolved")
+    description: Count of incidents that are not resolved.
+
+  High Severity Incidents:
+    table: Incident
+    dax: CALCULATE(DISTINCTCOUNT('Incident'[incident_id]), 'Incident'[severity] = "High")
+    description: Count of high severity incidents.
+
+  Average Incident Resolution Hours:
+    table: Incident
+    dax: AVERAGEX('Incident', DATEDIFF('Incident'[start_time], 'Incident'[resolution_time], HOUR))
+    format: "0.0"
+    description: Average time from incident start to resolution in hours.
+
+  Telemetry Events:
+    table: Telemetry Event
+    dax: COUNTROWS('Telemetry Event')
+    description: Count of telemetry events.
+
+  Critical Telemetry Events:
+    table: Telemetry Event
+    dax: CALCULATE(COUNTROWS('Telemetry Event'), 'Telemetry Event'[severity_band] = "Critical")
+    description: Count of critical telemetry events.
+
+  Average Latency:
+    table: Telemetry Event
+    dax: CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "latency_ms")
+    format: "0.0 ms"
+    description: Average latency in milliseconds.
+
+  Average Packet Loss:
+    table: Telemetry Event
+    dax: CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "packet_loss_pct")
+    format: "0.00%"
+    description: Average packet loss percentage.
+
+  Support Cases:
+    table: Support Case
+    dax: DISTINCTCOUNT('Support Case'[case_id])
+    description: Count of support cases.
+
+  Escalated Cases:
+    table: Support Case
+    dax: CALCULATE(DISTINCTCOUNT('Support Case'[case_id]), 'Support Case'[case_status] = "Escalated")
+    description: Count of escalated support cases.
+
+  Average Sentiment:
+    table: Support Case
+    dax: AVERAGE('Support Case'[sentiment_score])
+    format: "0.00"
+    description: Average synthetic support sentiment score.
+
+  Work Orders:
+    table: Work Order
+    dax: DISTINCTCOUNT('Work Order'[work_order_id])
+    description: Count of work orders.
+
+  P1 Work Orders:
+    table: Work Order
+    dax: CALCULATE(DISTINCTCOUNT('Work Order'[work_order_id]), 'Work Order'[priority] = "P1")
+    description: Count of P1 work orders.
+
+  SLA Exposure Amount:
+    table: SLA Exposure
+    dax: SUM('SLA Exposure'[exposure_amount])
+    format: $#,0
+    description: Estimated SLA exposure in CAD.
+
+  High Churn Risk Customers:
+    table: Churn Risk
+    dax: CALCULATE(DISTINCTCOUNT('Churn Risk'[customer_id]), 'Churn Risk'[risk_band] = "High")
+    description: Count of customers with high churn risk.
+
+  Average Churn Risk Score:
+    table: Churn Risk
+    dax: AVERAGE('Churn Risk'[risk_score])
+    format: "0.000"
+    description: Average synthetic churn-risk score.
+

@@ -1,0 +1,59 @@
+flowchart LR
+    subgraph Sources["Synthetic Telecom Sources"]
+        Generator["generate.py\n(scenario_config.yaml)"]
+        Validator["validate_scenario.py\n(21 acceptance checks)"]
+        StreamSim["stream_simulator.py\n(live replay, now-anchored)"]
+    end
+
+    subgraph Bronze["Bronze Lakehouse"]
+        RawCustomer["raw_customers"]
+        RawNetwork["raw_network_assets"]
+        RawTelemetry["raw_telemetry_events"]
+        RawSupport["raw_support_cases"]
+        RawOps["raw_work_orders"]
+        RawBridgeAsset["raw_bridge_incident_asset"]
+        RawBridgeService["raw_bridge_incident_service"]
+        RawInvestigation["raw_investigations"]
+    end
+
+    subgraph Silver["Silver Lakehouse"]
+        Customer["customer"]
+        Service["service_instance"]
+        Network["network_asset"]
+        Incident["incident"]
+        Support["support_case"]
+        WorkOrder["work_order"]
+    end
+
+    subgraph Gold["Gold Lakehouse / Warehouse"]
+        Dims["Curated Dimensions"]
+        Facts["Curated Facts"]
+        Aggs["KPI Aggregates"]
+    end
+
+    subgraph RealTime["Eventhouse"]
+        KqlTelemetry["network_telemetry"]
+        KqlAlarms["network_alarms"]
+    end
+
+    subgraph Consumption["Consumption"]
+        Semantic["Power BI Semantic Model"]
+        Report["Power BI Demo Report"]
+        Ontology["Fabric IQ Ontology"]
+        Investigation["Investigation\n(evidence trail)"]
+    end
+
+    Generator --> Validator
+    Validator --> Bronze
+    Generator --> StreamSim
+    StreamSim --> RealTime
+    Bronze --> Silver
+    RealTime --> Silver
+    Silver --> Gold
+    Gold --> Semantic
+    Gold --> Ontology
+    Semantic --> Report
+    Ontology --> Report
+    Gold --> Investigation
+    Investigation --> Report
+
