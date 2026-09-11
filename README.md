@@ -4,7 +4,7 @@ This project is a VS Code workspace for building a fabricated Microsoft Fabric I
 
 The demo shows how network, operations, service support, and business-impact data can be unified in Microsoft Fabric to support natural-language investigation, operational triage, and executive decision-making.
 
-> This project must use fabricated data only. Do not model this on any real telecom provider's customer, subscriber, network, operational, billing, or support data.
+> This project uses fabricated data only. It does not model this on any real telecom provider's customer, subscriber, network, operational, billing, or support data.
 
 ## Demo narrative
 
@@ -19,6 +19,7 @@ A spike in complaints for 5G Home Internet and mobile service appears across sel
 | `data_contracts\` | Bronze/Silver/Gold table schemas, including the incident impact bridge tables |
 | `deployment\` | Fabric workspace/item creation guide and PowerShell deployment script |
 | `docs\` | Solution vision, ontology, implementation, demo script, governance |
+| `notebooks\` | Fabric-native notebook that runs the scenario generator/validator in-Fabric, no local Python setup required |
 | `semantic_model\` | IQ-friendly semantic model, relationships, measures, synonyms, and TMDL starter assets |
 | `src\data_generator\` | Deterministic scenario generator, acceptance-test validator, and live stream replay simulator |
 
@@ -32,6 +33,8 @@ A spike in complaints for 5G Home Internet and mobile service appears across sel
 6. Use `docs\06-demo-script.md` as the end-to-end walkthrough.
 7. Read `docs\10-operationsiq-alignment.md` for what was borrowed from OperationsIQ (investigation
    artifacts, Activator closed-loop design) and what was deliberately deferred.
+8. Read `docs\11-data-agent-use-cases.md` to carve out Fabric Data Agent use cases mapped to
+   personas, data sources, and the decisions each answer should unlock.
 
 ## Target Fabric architecture
 
@@ -48,6 +51,7 @@ flowchart LR
         Generator["generate.py\n(scenario_config.yaml)"]
         Validator["validate_scenario.py\n(21 acceptance checks)"]
         StreamSim["stream_simulator.py\n(live replay, now-anchored)"]
+        FabricNotebook["Generate_Nimbus_Scenario_Data.ipynb\n(Fabric-native, no local setup)"]
     end
 
     subgraph Bronze["Bronze Lakehouse"]
@@ -92,6 +96,7 @@ flowchart LR
     Validator --> Bronze
     Generator --> StreamSim
     StreamSim --> RealTime
+    FabricNotebook --> Bronze
     Bronze --> Silver
     RealTime --> Silver
     Silver --> Gold
@@ -118,6 +123,9 @@ already-populated `.venv` for every command below.
    uv sync
    uv run python .\src\data_generator\generate.py --config .\src\data_generator\config\scenario_config.yaml --output .\sample_output
    ```
+   **No local Python setup allowed?** Skip this step and run `notebooks\Generate_Nimbus_Scenario_Data.ipynb`
+   directly inside your Fabric workspace instead - see `src\data_generator\README.md` for details.
+   It calls the exact same generation/validation code, just executed in Fabric.
 2. **Prove the causal story holds before building on it.**
    ```powershell
    uv run python .\src\data_generator\validate_scenario.py --data .\sample_output

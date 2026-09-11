@@ -3,6 +3,7 @@ flowchart LR
         Generator["generate.py\n(scenario_config.yaml)"]
         Validator["validate_scenario.py\n(21 acceptance checks)"]
         StreamSim["stream_simulator.py\n(live replay, now-anchored)"]
+        FabricNotebook["Generate_Nimbus_Scenario_Data.ipynb\n(Fabric-native, no local setup)"]
     end
 
     subgraph Bronze["Bronze Lakehouse"]
@@ -47,6 +48,7 @@ flowchart LR
     Validator --> Bronze
     Generator --> StreamSim
     StreamSim --> RealTime
+    FabricNotebook --> Bronze
     Bronze --> Silver
     RealTime --> Silver
     Silver --> Gold

@@ -24,6 +24,30 @@ service instance the incident actually reaches"). Run it after any change to `ge
 `config/scenario_config.yaml` - a change that breaks the causal chain should fail this script,
 not surface as a wrong answer during a live demo.
 
+## Run without a local Python setup (Fabric-native)
+
+If your organization doesn't allow local package installs, run the generator entirely inside
+Fabric instead of on your machine: `notebooks/Generate_Nimbus_Scenario_Data.ipynb` calls the
+exact same `build_datasets()` and `run_validation()` functions that the local CLI calls, so the
+output and the 21/21 acceptance checks are identical either way - no generation logic is
+duplicated between the two paths.
+
+1. Run `deployment/Create-FabricAssets.ps1` (default behavior uploads `generate.py`,
+   `validate_scenario.py`, and `config/scenario_config.yaml` to
+   `Files/src/data_generator/` in the Bronze lakehouse; pass `-SkipGeneratorSourceUpload` to
+   opt out).
+2. Import `notebooks/Generate_Nimbus_Scenario_Data.ipynb` into the
+   `{prefix}_generate_scenario_data` notebook item the script creates, and attach it to the
+   Bronze lakehouse as its default lakehouse.
+3. Run it top to bottom. It `%pip install`s `faker`/`pyyaml` into the session only (not your
+   machine), imports the two uploaded source files as modules, generates all 18 tables, writes
+   them as Delta tables and/or CSVs under `Files/landing/raw/` depending on the `output_mode`
+   parameter, and runs the same 21 acceptance checks against the CSV output.
+
+Both code paths (local CLI and Fabric notebook) are validated against the same
+`build_datasets()`/`run_validation()` functions in `generate.py`/`validate_scenario.py`, so a
+regression in the causal-integrity logic fails identically in both places.
+
 ## Network topology
 
 Each region has its own backhaul links, cell sites/sectors, fiber nodes, routers, and CMTS

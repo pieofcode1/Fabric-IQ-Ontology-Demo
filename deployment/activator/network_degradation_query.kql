@@ -1,0 +1,19 @@
+// Data source for the "5G Home Internet degradation" Activator rule.
+//
+// Prerequisite: mirror `raw_bridge_incident_asset` (joined to `raw_incidents` for `severity`
+// and `region`) into this KQL database as a lookup table named `network_incident_bridge`
+// with at least the columns: network_asset_id, incident_id, severity, region. This lets the
+// query scope alerts to assets that are actually bridged to a High severity incident, instead
+// of firing on every asset in the Eventhouse.
+//
+// Do NOT add the alert threshold (packet_loss_pct > 5) here - that belongs in the Activator
+// rule's EventDetectStep, not the data source query. This query only shapes/scopes the data.
+declare query_parameters(startTime:datetime, endTime:datetime);
+network_telemetry
+| where event_time between (startTime .. endTime)
+| where metric_name == "packet_loss_pct"
+| join kind=inner (
+    network_incident_bridge
+    | where severity == "High"
+) on network_asset_id
+| project event_time, network_asset_id, metric_name, metric_value, severity_band, incident_id, region

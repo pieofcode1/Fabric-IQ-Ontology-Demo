@@ -15,7 +15,13 @@ param(
     [string]$SubscriptionId = "569c92fe-efb6-440d-9274-73860e3f69aa",
 
     [Parameter(Mandatory = $false)]
-    [string]$SampleOutputPath = ".\sample_output"
+    [string]$SampleOutputPath = ".\sample_output",
+
+    [Parameter(Mandatory = $false)]
+    [string]$GeneratorSourcePath = ".\src\data_generator",
+
+    [Parameter(Mandatory = $false)]
+    [switch]$SkipGeneratorSourceUpload
 )
 
 $ErrorActionPreference = "Stop"
@@ -203,6 +209,8 @@ $assets.SilverLakehouse = New-FabricItemIfMissing -WorkspaceId $workspaceId -Ite
 $assets.GoldLakehouse = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName $goldLakehouseName -ItemType "Lakehouse" -Description "Gold curated lakehouse for IQ and Power BI."
 $assets.Eventhouse = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_eventhouse" -ItemType "Eventhouse" -Description "Eventhouse for simulated network telemetry and alarms."
 $assets.KqlDatabase = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_kql" -ItemType "KQLDatabase" -Description "KQL database for real-time network analytics."
+$assets.Activator = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_degradation_alert" -ItemType "Reflex" -Description "Activator rule placeholder (import deployment/activator/ReflexEntities.template.json - see deployment/activator/README.md)."
+$assets.GenerateScenarioDataNotebook = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_generate_scenario_data" -ItemType "Notebook" -Description "Fabric-native scenario data generator (import notebooks/Generate_Nimbus_Scenario_Data.ipynb into this item)."
 $assets.BronzeNotebook = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_bronze_ingestion" -ItemType "Notebook" -Description "Bronze ingestion notebook placeholder."
 $assets.SilverNotebook = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_silver_transform" -ItemType "Notebook" -Description "Silver transformation notebook placeholder."
 $assets.GoldNotebook = New-FabricItemIfMissing -WorkspaceId $workspaceId -ItemName "$($AssetPrefix)_gold_curate" -ItemType "Notebook" -Description "Gold curation notebook placeholder."
@@ -231,6 +239,46 @@ if ($samplePath) {
 }
 else {
     Write-Warning "Sample output path not found: $SampleOutputPath. Skipping CSV upload."
+}
+
+if (-not $SkipGeneratorSourceUpload) {
+    $generatorPath = Resolve-Path $GeneratorSourcePath -ErrorAction SilentlyContinue
+    if ($generatorPath) {
+        Write-Host "Uploading generator source (generate.py, validate_scenario.py, scenario_config.yaml) to Bronze Lakehouse Files..."
+        $storageToken = Get-StorageToken
+        $storageHeaders = @{
+            Authorization = "Bearer $storageToken"
+            "x-ms-version" = "2021-06-08"
+        }
+
+        New-OneLakeDirectory -WorkspaceId $workspaceId -LakehouseName $bronzeLakehouseName -Directory "Files" -Headers $storageHeaders
+        New-OneLakeDirectory -WorkspaceId $workspaceId -LakehouseName $bronzeLakehouseName -Directory "Files/src" -Headers $storageHeaders
+        New-OneLakeDirectory -WorkspaceId $workspaceId -LakehouseName $bronzeLakehouseName -Directory "Files/src/data_generator" -Headers $storageHeaders
+        New-OneLakeDirectory -WorkspaceId $workspaceId -LakehouseName $bronzeLakehouseName -Directory "Files/src/data_generator/config" -Headers $storageHeaders
+
+        $sourceFiles = @(
+            @{ Local = "generate.py"; Remote = "Files/src/data_generator/generate.py" },
+            @{ Local = "validate_scenario.py"; Remote = "Files/src/data_generator/validate_scenario.py" },
+            @{ Local = "config/scenario_config.yaml"; Remote = "Files/src/data_generator/config/scenario_config.yaml" }
+        )
+
+        foreach ($sourceFile in $sourceFiles) {
+            $localFile = Join-Path $generatorPath.Path $sourceFile.Local
+            if (Test-Path $localFile) {
+                Upload-OneLakeFile -WorkspaceId $workspaceId -LakehouseName $bronzeLakehouseName -LocalFile $localFile -RemotePath $sourceFile.Remote -Headers $storageHeaders
+                Write-Host "Uploaded $($sourceFile.Local) -> $($sourceFile.Remote)"
+            }
+            else {
+                Write-Warning "Generator source file not found, skipping: $localFile"
+            }
+        }
+    }
+    else {
+        Write-Warning "Generator source path not found: $GeneratorSourcePath. Skipping source upload."
+    }
+}
+else {
+    Write-Host "Skipping generator source upload (-SkipGeneratorSourceUpload set)."
 }
 
 $manifest = [ordered]@{

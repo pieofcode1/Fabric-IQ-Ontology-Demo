@@ -921,13 +921,15 @@ def entity_scale(config: dict[str, Any], key: str, default: int) -> int:
     return int(config.get("scale", {}).get(key, default))
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate fabricated telecom ontology demo data.")
-    parser.add_argument("--config", required=True, type=Path)
-    parser.add_argument("--output", required=True, type=Path)
-    args = parser.parse_args()
+def build_datasets(config: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    """Run the full scenario generation and return every table as a dict of rows.
 
-    config = load_config(args.config)
+    This is the reusable core used by both the local CLI (`main`, below) and the Fabric
+    notebook (`notebooks/Generate_Nimbus_Scenario_Data.ipynb`), which writes the same rows to
+    Delta tables instead of CSV files. Keeping this as the single source of truth means the
+    causal-integrity guarantees checked by `validate_scenario.py` hold identically wherever the
+    data is generated.
+    """
     random.seed(config["seed"])
     fake = Faker("en_CA")
     Faker.seed(config["seed"])
@@ -988,7 +990,7 @@ def main() -> None:
         incidents, bridge_incident_asset, bridge_incident_service, support_cases, sla_exposure, batch_id
     )
 
-    datasets = {
+    return {
         "raw_accounts.csv": accounts,
         "raw_customers.csv": customers,
         "raw_products.csv": products,
@@ -1008,6 +1010,16 @@ def main() -> None:
         "raw_churn_risk.csv": churn_risk,
         "raw_investigations.csv": investigations,
     }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Generate fabricated telecom ontology demo data.")
+    parser.add_argument("--config", required=True, type=Path)
+    parser.add_argument("--output", required=True, type=Path)
+    args = parser.parse_args()
+
+    config = load_config(args.config)
+    datasets = build_datasets(config)
 
     for file_name, rows in datasets.items():
         write_csv(args.output / file_name, rows)

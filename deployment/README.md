@@ -13,9 +13,11 @@ The included script creates a **single workspace** with separate assets for Bron
 | `{prefix}_gold` | Lakehouse | Curated IQ and Power BI tables |
 | `{prefix}_eventhouse` | Eventhouse | Real-time network telemetry and alarm scenario |
 | `{prefix}_kql` | KQLDatabase | KQL database for telemetry and alarm analytics |
+| `{prefix}_degradation_alert` | Reflex (Activator) | Placeholder alert item - import `deployment/activator/ReflexEntities.template.json` (see `deployment/activator/README.md`) for a working starting rule |
 | `{prefix}_bronze_ingestion` | Notebook | Starter ingestion notebook placeholder |
 | `{prefix}_silver_transform` | Notebook | Starter Silver transformation notebook placeholder |
 | `{prefix}_gold_curate` | Notebook | Starter Gold curation notebook placeholder |
+| `{prefix}_generate_scenario_data` | Notebook | Placeholder for `notebooks/Generate_Nimbus_Scenario_Data.ipynb` - runs the scenario generator natively in Fabric, no local Python setup required |
 | `{prefix}_orchestration` | DataPipeline | Placeholder pipeline for Bronze to Silver to Gold orchestration |
 | `{prefix}_semantic_model` | SemanticModel | Placeholder Direct Lake semantic model target |
 | `{prefix}_service_assurance_report` | Report | Placeholder Power BI report target |
@@ -27,6 +29,19 @@ Files/landing/raw/<file>.csv
 ```
 
 inside the Bronze lakehouse.
+
+By default it also uploads the generator source (`generate.py`, `validate_scenario.py`,
+`config/scenario_config.yaml`) to:
+
+```text
+Files/src/data_generator/generate.py
+Files/src/data_generator/validate_scenario.py
+Files/src/data_generator/config/scenario_config.yaml
+```
+
+so that `notebooks/Generate_Nimbus_Scenario_Data.ipynb` can import them and generate the scenario
+data directly inside Fabric, without any local Python setup. Pass `-SkipGeneratorSourceUpload` to
+the script to skip this step.
 
 ## Prerequisites
 
@@ -76,8 +91,17 @@ If you know the Fabric capacity ID:
 
 1. Open the Fabric workspace.
 2. Confirm the three lakehouses exist.
-3. Open the Bronze lakehouse and confirm the generated CSVs are in `Files/landing/raw`.
-4. Implement Bronze ingestion notebook:
+3. Open the Bronze lakehouse and confirm the generated CSVs are in `Files/landing/raw` and the
+   generator source is in `Files/src/data_generator`.
+4. **Optional, no-local-setup path:** import `notebooks/Generate_Nimbus_Scenario_Data.ipynb`
+   into the `{prefix}_generate_scenario_data` notebook item, attach it to the Bronze lakehouse,
+   and run it top to bottom to (re)generate and validate the scenario data entirely inside
+   Fabric - see `src/data_generator/README.md` for details.
+5. **Optional, closing the loop:** import `deployment/activator/ReflexEntities.template.json`
+   into the `{prefix}_degradation_alert` Activator item to get a working packet-loss alert rule
+   instead of starting from a blank Activator - see `deployment/activator/README.md` for the
+   prerequisites (a `network_incident_bridge` lookup table in the KQL database) and import steps.
+6. Implement Bronze ingestion notebook:
    - Read CSVs from `Files/landing/raw`.
    - Add ingestion metadata.
    - Write Bronze Delta tables.

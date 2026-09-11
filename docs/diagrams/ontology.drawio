@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram id="ontology" name="Ontology Model">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Lane 1: Customer and Commercial -->
+        <mxCell id="CUSTOMER" value="CUSTOMER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ACCOUNT" value="ACCOUNT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SUBSCRIPTION" value="SUBSCRIPTION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PRODUCT" value="PRODUCT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 2: Service and Network -->
+        <mxCell id="NETWORK_ASSET" value="NETWORK_ASSET" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="180" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SERVICE_INSTANCE" value="SERVICE_INSTANCE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DEVICE" value="DEVICE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="180" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 3: Network Events and Incident -->
+        <mxCell id="TELEMETRY_EVENT" value="TELEMETRY_EVENT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="320" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ALARM" value="ALARM" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="320" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INCIDENT" value="INCIDENT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="320" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 4: Support and Field Ops -->
+        <mxCell id="SUPPORT_CASE" value="SUPPORT_CASE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="WORK_ORDER" value="WORK_ORDER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="460" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TECHNICIAN" value="TECHNICIAN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="460" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Lane 5: Business Impact -->
+        <mxCell id="CHURN_RISK" value="CHURN_RISK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="600" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SLA_EXPOSURE" value="SLA_EXPOSURE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="600" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Same-lane / adjacent-lane relationships: default orthogonal routing, no crossings -->
+        <mxCell id="r1" value="owns (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="CUSTOMER" target="ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="has (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="ACCOUNT" target="SUBSCRIPTION">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="includes (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="SUBSCRIPTION" target="PRODUCT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="delivered_as (1:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="SUBSCRIPTION" target="SERVICE_INSTANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" value="uses (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="SERVICE_INSTANCE" target="DEVICE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" value="served_by (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="SERVICE_INSTANCE" target="NETWORK_ASSET">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" value="emits (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="NETWORK_ASSET" target="TELEMETRY_EVENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" value="triggers (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="NETWORK_ASSET" target="ALARM">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r9" value="contributes_to (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="ALARM" target="INCIDENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r12" value="opens (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="CUSTOMER" target="SUPPORT_CASE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r14" value="remediated_by (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="INCIDENT" target="WORK_ORDER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r15" value="assigned_to (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="WORK_ORDER" target="TECHNICIAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Cross-lane relationships: routed through the clear gaps between lanes so they -->
+        <!-- never cut across an unrelated entity box. -->
+        <mxCell id="r10" value="affects (N:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=0.3;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="INCIDENT" target="NETWORK_ASSET">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="766" y="275" />
+              <mxPoint x="350" y="275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r11" value="impacts (N:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=0.2;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="INCIDENT" target="SERVICE_INSTANCE">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="290" />
+              <mxPoint x="570" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r13" value="linked_to (N:1)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;exitX=0.8;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SUPPORT_CASE" target="INCIDENT">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="184" y="415" />
+              <mxPoint x="826" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r16" value="creates (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="INCIDENT" target="SLA_EXPOSURE">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="754" y="415" />
+              <mxPoint x="570" y="415" />
+              <mxPoint x="570" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r17" value="has (1:N)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CUSTOMER" target="CHURN_RISK">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-40" y="65" />
+              <mxPoint x="-40" y="625" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

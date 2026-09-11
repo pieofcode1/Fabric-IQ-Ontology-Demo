@@ -52,12 +52,13 @@ class Result:
         return 1 if self.failures else 0
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate causal integrity of generated scenario data.")
-    parser.add_argument("--data", required=True, type=Path)
-    args = parser.parse_args()
-    data = args.data
+def run_validation(data: Path) -> int:
+    """Run all acceptance checks against a directory of generated CSVs and print a report.
 
+    Reusable entry point shared by the local CLI (`main`, below) and the Fabric notebook
+    (`notebooks/Generate_Nimbus_Scenario_Data.ipynb`), which calls this after materializing
+    Delta tables so the same 21 checks gate both code paths.
+    """
     subscriptions = {row["subscription_id"]: row for row in load(data, "raw_subscriptions.csv")}
     service_instances = {row["service_instance_id"]: row for row in load(data, "raw_service_instances.csv")}
     incidents = {row["incident_id"]: row for row in load(data, "raw_incidents.csv")}
@@ -222,6 +223,13 @@ def main() -> int:
     )
 
     return result.report()
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Validate causal integrity of generated scenario data.")
+    parser.add_argument("--data", required=True, type=Path)
+    args = parser.parse_args()
+    return run_validation(args.data)
 
 
 if __name__ == "__main__":
