@@ -1,114 +1,142 @@
-// Starter relationship definitions for the Fabric IQ semantic model.
-// Confirm exact table and column names after Gold tables are materialized.
+createOrReplace
 
-relationship Account_to_Customer
-    fromColumn: Customer.account_id
-    toColumn: Account.account_id
+    relationship Account_to_Customer
+        fromColumn: Customer.account_id
+        toColumn: Account.account_id
 
-relationship Account_to_Subscription
-    fromColumn: Subscription.account_id
-    toColumn: Account.account_id
+    relationship Account_to_Subscription
+        fromColumn: Subscription.account_id
+        toColumn: Account.account_id
 
-relationship Product_to_Subscription
-    fromColumn: Subscription.product_id
-    toColumn: Product.product_id
+    relationship Product_to_Subscription
+        fromColumn: Subscription.product_id
+        toColumn: Product.product_id
 
-relationship Subscription_to_Device
-    fromColumn: Device.subscription_id
-    toColumn: Subscription.subscription_id
+    relationship Subscription_to_Device
+        fromColumn: Device.subscription_id
+        toColumn: Subscription.subscription_id
 
-relationship Subscription_to_Service_Instance
-    fromColumn: Service Instance.subscription_id
-    toColumn: Subscription.subscription_id
+    relationship Subscription_to_Service_Instance
+        fromColumn: 'Service Instance'.subscription_id
+        toColumn: Subscription.subscription_id
 
-relationship Device_to_Service_Instance
-    fromColumn: Service Instance.device_id
-    toColumn: Device.device_id
+    /// Inactive alternate route: Subscription already filters Service Instance directly.
+    relationship Device_to_Service_Instance
+        isActive: false
+        fromColumn: 'Service Instance'.device_id
+        toColumn: Device.device_id
 
-relationship Network_Asset_to_Service_Instance
-    fromColumn: Service Instance.network_asset_id
-    toColumn: Network Asset.network_asset_id
+    relationship Network_Asset_to_Service_Instance
+        fromColumn: 'Service Instance'.network_asset_id
+        toColumn: 'Network Asset'.network_asset_id
 
-relationship Network_Asset_to_Incident
-    fromColumn: Incident.network_asset_id
-    toColumn: Network Asset.network_asset_id
+    /// Root-cause asset only; keep inactive to avoid competing asset-to-impact routes.
+    relationship Network_Asset_to_Incident
+        isActive: false
+        fromColumn: Incident.network_asset_id
+        toColumn: 'Network Asset'.network_asset_id
 
-relationship Network_Asset_to_Telemetry_Event
-    fromColumn: Telemetry Event.network_asset_id
-    toColumn: Network Asset.network_asset_id
+    relationship Network_Asset_to_Telemetry_Event
+        fromColumn: 'Telemetry Event'.network_asset_id
+        toColumn: 'Network Asset'.network_asset_id
 
-relationship Telemetry_Event_to_Alarm
-    fromColumn: Alarm.telemetry_event_id
-    toColumn: Telemetry Event.telemetry_event_id
+    /// Alternate asset/telemetry route; Incident is the active alarm filter.
+    relationship Telemetry_Event_to_Alarm
+        isActive: false
+        fromColumn: Alarm.telemetry_event_id
+        toColumn: 'Telemetry Event'.telemetry_event_id
 
-relationship Incident_to_Alarm
-    fromColumn: Alarm.incident_id
-    toColumn: Incident.incident_id
+    relationship Incident_to_Alarm
+        fromColumn: Alarm.incident_id
+        toColumn: Incident.incident_id
 
-relationship Customer_to_Support_Case
-    fromColumn: Support Case.customer_id
-    toColumn: Customer.customer_id
+    relationship Customer_to_Support_Case
+        fromColumn: 'Support Case'.customer_id
+        toColumn: Customer.customer_id
 
-relationship Account_to_Support_Case
-    fromColumn: Support Case.account_id
-    toColumn: Account.account_id
+    /// Account already filters Support Case through Customer.
+    relationship Account_to_Support_Case
+        isActive: false
+        fromColumn: 'Support Case'.account_id
+        toColumn: Account.account_id
 
-relationship Service_Instance_to_Support_Case
-    fromColumn: Support Case.service_instance_id
-    toColumn: Service Instance.service_instance_id
+    /// Alternate subscription/account route; activate only in a purpose-built measure.
+    relationship Service_Instance_to_Support_Case
+        isActive: false
+        fromColumn: 'Support Case'.service_instance_id
+        toColumn: 'Service Instance'.service_instance_id
 
-relationship Incident_to_Support_Case
-    fromColumn: Support Case.incident_id
-    toColumn: Incident.incident_id
+    relationship Incident_to_Support_Case
+        fromColumn: 'Support Case'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Incident_to_Work_Order
-    fromColumn: Work Order.incident_id
-    toColumn: Incident.incident_id
+    relationship Incident_to_Work_Order
+        fromColumn: 'Work Order'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Network_Asset_to_Work_Order
-    fromColumn: Work Order.network_asset_id
-    toColumn: Network Asset.network_asset_id
+    /// Preserve the asset link without adding another active incident/asset route.
+    relationship Network_Asset_to_Work_Order
+        isActive: false
+        fromColumn: 'Work Order'.network_asset_id
+        toColumn: 'Network Asset'.network_asset_id
 
-relationship Technician_to_Work_Order
-    fromColumn: Work Order.technician_id
-    toColumn: Technician.technician_id
+    relationship Technician_to_Work_Order
+        fromColumn: 'Work Order'.technician_id
+        toColumn: Technician.technician_id
 
-relationship Incident_to_SLA_Exposure
-    fromColumn: SLA Exposure.incident_id
-    toColumn: Incident.incident_id
+    relationship Incident_to_SLA_Exposure
+        fromColumn: 'SLA Exposure'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Account_to_SLA_Exposure
-    fromColumn: SLA Exposure.account_id
-    toColumn: Account.account_id
+    relationship Account_to_SLA_Exposure
+        fromColumn: 'SLA Exposure'.account_id
+        toColumn: Account.account_id
 
-relationship Customer_to_Churn_Risk
-    fromColumn: Churn Risk.customer_id
-    toColumn: Customer.customer_id
+    relationship Customer_to_Churn_Risk
+        fromColumn: 'Churn Risk'.customer_id
+        toColumn: Customer.customer_id
 
-// Incident impact bridges (raw_bridge_incident_asset, raw_bridge_incident_service). These are
-// the tables the ontology traversal and ad-hoc DAX should use to answer "who/what is affected
-// by incident X" - not raw_incidents.network_asset_id, which only carries the root-cause asset.
+    relationship Incident_to_Bridge_Incident_Asset
+        fromColumn: 'Bridge Incident Asset'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Incident_to_Bridge_Incident_Asset
-    fromColumn: Bridge Incident Asset.incident_id
-    toColumn: Incident.incident_id
+    relationship Network_Asset_to_Bridge_Incident_Asset
+        fromColumn: 'Bridge Incident Asset'.network_asset_id
+        toColumn: 'Network Asset'.network_asset_id
 
-relationship Network_Asset_to_Bridge_Incident_Asset
-    fromColumn: Bridge Incident Asset.network_asset_id
-    toColumn: Network Asset.network_asset_id
+    relationship Incident_to_Bridge_Incident_Service
+        fromColumn: 'Bridge Incident Service'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Incident_to_Bridge_Incident_Service
-    fromColumn: Bridge Incident Service.incident_id
-    toColumn: Incident.incident_id
+    relationship Service_Instance_to_Bridge_Incident_Service
+        fromColumn: 'Bridge Incident Service'.service_instance_id
+        toColumn: 'Service Instance'.service_instance_id
 
-relationship Service_Instance_to_Bridge_Incident_Service
-    fromColumn: Bridge Incident Service.service_instance_id
-    toColumn: Service Instance.service_instance_id
+    relationship Incident_to_Investigation
+        fromColumn: Investigation.incident_id
+        toColumn: Incident.incident_id
 
-// OperationsIQ-inspired evidence trail (raw_investigations): a saved finding per High severity
-// incident, confirmed against the bridge tables rather than free text.
+    relationship Incident_to_Dispatch_Priority
+        fromColumn: 'Dispatch Priority'.incident_id
+        toColumn: Incident.incident_id
 
-relationship Incident_to_Investigation
-    fromColumn: Investigation.incident_id
-    toColumn: Incident.incident_id
+    relationship Technician_to_Dispatch_Priority
+        fromColumn: 'Dispatch Priority'.technician_id
+        toColumn: Technician.technician_id
+
+    relationship Date_to_Incident
+        fromColumn: Incident.start_date
+        toColumn: Date.date
+
+    /// Use USERELATIONSHIP in a measure when comparing case-open dates rather than incident-start dates.
+    relationship Date_to_Support_Case
+        isActive: false
+        fromColumn: 'Support Case'.opened_date
+        toColumn: Date.date
+
+    /// Use USERELATIONSHIP in a measure when comparing work-order-created dates rather than incident-start dates.
+    relationship Date_to_Work_Order
+        isActive: false
+        fromColumn: 'Work Order'.created_date
+        toColumn: Date.date
 

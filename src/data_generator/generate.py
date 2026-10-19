@@ -565,8 +565,13 @@ def generate_alarms(
             for asset_id in bridge_asset_ids_by_incident.get(incident["incident_id"], set())
             for event in events_by_asset.get(asset_id, [])
         ]
+        related_incident_id = incident["incident_id"]
         if not candidate_events:
-            candidate_events = events_by_asset.get(incident["network_asset_id"], abnormal_events)
+            candidate_events = [event for event in telemetry_events
+                                if event["network_asset_id"] in bridge_asset_ids_by_incident.get(incident["incident_id"], set())]
+        if not candidate_events:
+            candidate_events = abnormal_events
+            related_incident_id = ""
         event = random.choice(candidate_events)
 
         rows.append(
@@ -574,7 +579,7 @@ def generate_alarms(
                 "alarm_id": f"ALM-{index:08d}",
                 "telemetry_event_id": event["telemetry_event_id"],
                 "network_asset_id": event["network_asset_id"],
-                "incident_id": incident["incident_id"],
+                "incident_id": related_incident_id,
                 "alarm_type": f"{event['metric_name']} threshold",
                 "severity": event["severity_band"],
                 "status": weighted_choice(["Cleared", "Active", "Acknowledged"], [70, 15, 15]),
@@ -632,7 +637,10 @@ def generate_work_orders(
         if status == "Completed" and completed_time > resolution_time:
             # A closed work order cannot finish after its own incident was marked resolved.
             completed_time = resolution_time - timedelta(minutes=random.randint(5, 30))
-            scheduled_time = min(scheduled_time, completed_time - timedelta(minutes=15))
+            detected_time = datetime.fromisoformat(incident["detected_time"])
+            completed_time = max(detected_time, completed_time)
+            scheduled_time = max(detected_time, min(scheduled_time, completed_time - timedelta(minutes=15)))
+            created_time = min(created_time, scheduled_time)
         priority = "P1" if incident["severity"] == "High" else "P2" if incident["severity"] == "Medium" else "P3"
 
         rows.append(
@@ -690,10 +698,7 @@ def generate_support_cases(
             for instance in instances_by_asset.get(asset_id, [])
             if instance["service_type"] == incident["affected_service_type"]
         ]
-        if matches:
-            return matches
-        matches = [instance for asset_id in asset_ids for instance in instances_by_asset.get(asset_id, [])]
-        return matches or instances_by_asset.get(incident["network_asset_id"], service_instances)
+        return matches
 
     affected_instances_by_incident = {incident["incident_id"]: affected_instances(incident) for incident in incidents}
     bridge_rows: list[dict[str, Any]] = []
@@ -708,6 +713,14 @@ def generate_support_cases(
             )
 
     primary_incident = incidents[0]
+    case_instances_by_incident = {
+        incident_id: [instance for instance in instances
+                      if customers_by_account.get(subscription_lookup[instance["subscription_id"]]["account_id"])]
+        for incident_id, instances in affected_instances_by_incident.items()
+    }
+    eligible_incidents = [incident for incident in incidents if case_instances_by_incident[incident["incident_id"]]]
+    if count and not case_instances_by_incident[primary_incident["incident_id"]]:
+        raise ValueError("The primary incident requires impacted services whose accounts have customers; increase the scenario scale.")
     start_time = datetime.fromisoformat(primary_incident["start_time"])
     min_lag = config["incident"]["ticket_lag_min_minutes"]
     max_lag = config["incident"]["ticket_lag_max_minutes"]
@@ -718,17 +731,15 @@ def generate_support_cases(
             incident = primary_incident
             opened_time = start_time + timedelta(minutes=random.randint(min_lag, max_lag + 240))
         else:
-            incident = random.choice(incidents)
+            incident = random.choice(eligible_incidents)
             opened_time = datetime.fromisoformat(incident["start_time"]) + timedelta(
                 minutes=random.randint(10, 360)
             )
 
-        service_instance = random.choice(affected_instances_by_incident[incident["incident_id"]])
+        service_instance = random.choice(case_instances_by_incident[incident["incident_id"]])
         subscription = subscription_lookup[service_instance["subscription_id"]]
         account = account_lookup[subscription["account_id"]]
-        customer_ids = customers_by_account.get(account["account_id"]) or [
-            customer["customer_id"] for customer in customers
-        ]
+        customer_ids = customers_by_account[account["account_id"]]
         customer_id = random.choice(customer_ids)
         sentiment = random.uniform(-0.95, -0.15) if incident["severity"] == "High" else random.uniform(-0.4, 0.6)
 

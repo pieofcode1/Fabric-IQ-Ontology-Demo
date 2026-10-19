@@ -26,6 +26,33 @@ silver_tables:
   work_order:
     grain: one work order
     key: work_order_id
+  product:
+    grain: one product or plan
+    key: product_id
+  device:
+    grain: one device
+    key: device_id
+  alarm:
+    grain: one validated alarm
+    key: alarm_id
+  technician:
+    grain: one technician
+    key: technician_id
+  sla_exposure:
+    grain: one SLA exposure estimate
+    key: exposure_id
+  churn_risk:
+    grain: one synthetic customer risk score
+    key: risk_id
+  bridge_incident_asset:
+    grain: one incident and impacted asset
+    key: [incident_id, network_asset_id]
+  bridge_incident_service:
+    grain: one incident and impacted service
+    key: [incident_id, service_instance_id]
+  investigation:
+    grain: one saved incident evidence artifact
+    key: investigation_id
 
 gold_tables:
   dim_customer:
@@ -45,7 +72,7 @@ gold_tables:
     grain: one network asset
   fact_network_telemetry_hourly:
     source: telemetry_event
-    grain: one network asset, metric, and hour
+    grain: one network asset, metric, unit, and UTC hour
   fact_support_case:
     source: support_case
     grain: one support case
@@ -56,9 +83,57 @@ gold_tables:
     source: work_order
     grain: one work order
   agg_customer_impact_by_incident:
-    source: incident, service_instance, support_case, sla_exposure
+    source: bridge_incident_service, service_instance, subscription, account, customer, support_case, sla_exposure
     grain: one incident and customer segment
+    note: Segments use the owning account type (Consumer becomes Residential); affected customers are customers on impacted accounts, not a direct service-customer mapping.
   agg_dispatch_priority:
-    source: work_order, incident, sla_exposure
+    source: work_order, incident, bridge_incident_service, account, sla_exposure
     grain: one work order
+    note: Incident exposure is repeated context per work order; do not sum this column across work orders.
+  dim_device:
+    source: device
+    grain: one device
+  dim_technician:
+    source: technician
+    grain: one technician
+  bridge_subscription:
+    source: subscription
+    grain: one subscription
+  fact_network_telemetry:
+    source: telemetry_event
+    grain: one telemetry event
+  fact_alarm:
+    source: alarm
+    grain: one alarm
+  fact_sla_exposure:
+    source: sla_exposure
+    grain: one SLA exposure estimate
+  fact_churn_risk:
+    source: churn_risk
+    grain: one synthetic customer risk score
+  fact_investigation:
+    source: investigation
+    grain: one saved incident evidence artifact
+  bridge_incident_asset:
+    source: bridge_incident_asset
+    grain: one incident and impacted asset
+  bridge_incident_service:
+    source: bridge_incident_service
+    grain: one incident and impacted service
+  dim_date:
+    source: all Silver date and timestamp columns
+    grain: one date from the minimum through maximum observed date in UTC
+  dim_region:
+    source: network_asset
+    grain: one distinct region
+  agg_service_health_daily:
+    source: telemetry_event, service_instance
+    grain: one network asset, metric, unit, and UTC date
+
+conformance:
+  timestamps: UTC
+  money: decimal(18,2)
+  deduplication: business key, newest ingestion timestamp, stable row hash for ties
+  required_checks: typed values, non-null keys, foreign keys, timeline ordering, ranges, causal bridges, investigation totals
+  write_policy: full refresh only after checks; existing outputs require allow_replace=true; per-table Delta transactions
 

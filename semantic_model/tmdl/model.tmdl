@@ -1,9 +1,3 @@
-model Nimbus Telecom Service Assurance IQ Model
-    culture: en-US
-    description: Fabric IQ-friendly semantic model for fabricated telecom service assurance, network operations, support, field operations, and business impact.
-
-    annotation __PBI_TimeIntelligenceEnabled = 0
-
-    // Tables are expected to be bound to Gold Lakehouse or Warehouse objects with these business names.
-    // Use Direct Lake mode when deploying to Fabric.
+defaultPowerBIDataSourceVersion: powerBI_V3
+annotation __PBI_TimeIntelligenceEnabled = 0
 

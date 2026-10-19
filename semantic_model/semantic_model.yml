@@ -3,14 +3,16 @@ model:
   description: IQ-friendly semantic model for fabricated telecom service assurance, network operations, service support, and customer impact analytics.
   source_layer: Gold Lakehouse or Warehouse
   source_note: >
-    Table sources below reference raw_* names to match the current generator output 1:1 for local
-    development. Before Direct Lake deployment, materialize the equivalent Gold tables
-    (dim_/fact_/bridge_ naming per docs/05-fabric-implementation-plan.md) and repoint `source`.
+    Sources reference the managed Gold tables produced by Transform_Nimbus_Silver_To_Gold.ipynb.
+    Raw generator datasets are conformed in Silver before Gold materialization.
+    Date is a physical dim_date table; Telemetry Event remains event-grain, with a separate
+    fact_network_telemetry_hourly table available for aggregated reporting.
   recommended_storage_mode: Direct Lake
   default_date_table: Date
 
 tables:
   Date:
+    source: dim_date
     description: Shared calendar table used for reporting by opened, incident, telemetry, and work-order dates.
     type: dimension
     key: date
@@ -23,7 +25,7 @@ tables:
       day_name: Day name.
 
   Account:
-    source: raw_accounts
+    source: dim_account
     type: dimension
     key: account_id
     description: Billing or enterprise account associated with customers and subscriptions.
@@ -42,7 +44,7 @@ tables:
       province: Account province.
 
   Customer:
-    source: raw_customers
+    source: dim_customer
     type: dimension
     key: customer_id
     description: Residential or business customer using telecom services.
@@ -63,7 +65,7 @@ tables:
       postal_code_prefix: Fabricated postal code prefix.
 
   Product:
-    source: raw_products
+    source: dim_product
     type: dimension
     key: product_id
     description: Telecom product, service plan, or bundle.
@@ -80,7 +82,7 @@ tables:
       product_family: Product family.
 
   Subscription:
-    source: raw_subscriptions
+    source: bridge_subscription
     type: bridge
     key: subscription_id
     description: Product subscription connecting accounts to purchased telecom services.
@@ -98,7 +100,7 @@ tables:
       monthly_recurring_revenue: Monthly recurring revenue in CAD.
 
   Device:
-    source: raw_devices
+    source: dim_device
     type: dimension
     key: device_id
     description: Handset, gateway, modem, router, or customer-premise equipment.
@@ -118,7 +120,7 @@ tables:
       device_status: Current device status.
 
   Service Instance:
-    source: raw_service_instances
+    source: dim_service_instance
     type: bridge
     key: service_instance_id
     description: Delivered service instance linking subscription, device, and serving network asset.
@@ -138,7 +140,7 @@ tables:
       status: Service status.
 
   Network Asset:
-    source: raw_network_assets
+    source: dim_network_asset
     type: dimension
     key: network_asset_id
     description: Telecom network asset such as cell site, sector, fiber node, CMTS, router, or backhaul link.
@@ -164,7 +166,7 @@ tables:
       operational_status: Active, Maintenance, or Degraded.
 
   Incident:
-    source: raw_incidents
+    source: fact_incident
     type: fact
     key: incident_id
     description: Network or service incident affecting assets, services, or customers.
@@ -183,13 +185,14 @@ tables:
       severity: Incident severity.
       status: Incident status.
       start_time: Incident start timestamp.
+      start_date: Incident start date in UTC for the active Date relationship.
       detected_time: Incident detection timestamp.
       resolution_time: Incident resolution timestamp.
       region: Affected region.
       affected_service_type: Affected service type.
 
   Telemetry Event:
-    source: raw_telemetry_events
+    source: fact_network_telemetry
     type: fact
     key: telemetry_event_id
     description: Network telemetry measurement emitted by a network asset.
@@ -212,7 +215,7 @@ tables:
       scenario_id: Synthetic scenario identifier.
 
   Alarm:
-    source: raw_alarms
+    source: fact_alarm
     type: fact
     key: alarm_id
     description: Threshold or anomaly alarm generated from telemetry.
@@ -233,7 +236,7 @@ tables:
       cleared_time: Alarm cleared timestamp.
 
   Support Case:
-    source: raw_support_cases
+    source: fact_support_case
     type: fact
     key: case_id
     description: Customer support interaction related to service quality, outage, or complaint.
@@ -251,6 +254,7 @@ tables:
       service_instance_id: Related service instance.
       incident_id: Related incident.
       opened_time: Case opened timestamp.
+      opened_date: Case opened date in UTC for optional role-playing date analysis.
       closed_time: Case closed timestamp.
       channel: Phone, Chat, Retail, Social, or Email.
       case_reason: Case reason.
@@ -259,7 +263,7 @@ tables:
       customer_tier: Customer tier at case time.
 
   Technician:
-    source: raw_technicians
+    source: dim_technician
     type: dimension
     key: technician_id
     description: Field or operations technician assigned to remediation work.
@@ -277,7 +281,7 @@ tables:
       availability_status: Availability status.
 
   Work Order:
-    source: raw_work_orders
+    source: fact_work_order
     type: fact
     key: work_order_id
     description: Field or NOC remediation work tied to an incident and network asset.
@@ -295,11 +299,12 @@ tables:
       priority: P1, P2, or P3.
       status: Work order status.
       created_time: Work order created timestamp.
+      created_date: Work order creation date in UTC for optional role-playing date analysis.
       scheduled_time: Scheduled work timestamp.
       completed_time: Completed timestamp.
 
   SLA Exposure:
-    source: raw_sla_exposure
+    source: fact_sla_exposure
     type: fact
     key: exposure_id
     description: Estimated customer credit or penalty exposure from service-impacting incidents.
@@ -320,7 +325,7 @@ tables:
       exposure_status: Estimated, approved, or waived.
 
   Churn Risk:
-    source: raw_churn_risk
+    source: fact_churn_risk
     type: fact
     key: risk_id
     description: Synthetic customer churn-risk score and primary driver.
@@ -340,7 +345,7 @@ tables:
       scored_time: Score timestamp.
 
   Bridge Incident Asset:
-    source: raw_bridge_incident_asset
+    source: bridge_incident_asset
     type: bridge
     key: [incident_id, network_asset_id]
     description: >
@@ -357,7 +362,7 @@ tables:
       impact_role: root_cause or downstream.
 
   Bridge Incident Service:
-    source: raw_bridge_incident_service
+    source: bridge_incident_service
     type: bridge
     key: [incident_id, service_instance_id]
     description: >
@@ -374,7 +379,7 @@ tables:
       service_instance_id: Impacted service instance.
 
   Investigation:
-    source: raw_investigations
+    source: fact_investigation
     type: fact
     key: investigation_id
     description: >
@@ -398,6 +403,27 @@ tables:
       status: Confirmed or In Progress.
       created_time: Investigation creation timestamp.
       created_by: Investigation author.
+
+  Dispatch Priority:
+    source: agg_dispatch_priority
+    type: fact
+    key: work_order_id
+    description: One Gold dispatch-priority row per work order; incident amounts are repeated context, not additive across orders.
+    columns:
+      work_order_id: Related work order identifier.
+      incident_id: Related incident identifier.
+      technician_id: Assigned technician identifier.
+      network_asset_id: Work order network asset.
+      priority: Work order priority.
+      status: Work order status.
+      severity: Incident severity.
+      affected_service_count: Incident affected services, repeated per work order.
+      sla_exposure_amount: Incident SLA exposure in CAD, repeated per work order.
+      severity_weight: High 40, Medium 20, other 10.
+      affected_subscriber_weight: Minimum of 25 and affected-service count divided by 20.
+      sla_exposure_weight: Minimum of 25 and incident CAD exposure divided by 1000.
+      customer_tier_weight: Highest impacted account tier, Enterprise 10, Premium 5, other 0.
+      dispatch_priority_score: Sum of the four materialized Gold score components.
 
 relationships:
   - name: Account to Customer
@@ -457,7 +483,7 @@ relationships:
     to_column: device_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Service instances use devices.
 
   - name: Network Asset to Service Instance
@@ -477,7 +503,7 @@ relationships:
     to_column: network_asset_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Incidents affect network assets.
 
   - name: Network Asset to Telemetry Event
@@ -497,7 +523,7 @@ relationships:
     to_column: telemetry_event_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Alarms are raised from telemetry events.
 
   - name: Incident to Alarm
@@ -527,7 +553,7 @@ relationships:
     to_column: account_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Support cases are associated with accounts.
 
   - name: Service Instance to Support Case
@@ -537,7 +563,7 @@ relationships:
     to_column: service_instance_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Support cases reference service instances.
 
   - name: Incident to Support Case
@@ -567,7 +593,7 @@ relationships:
     to_column: network_asset_id
     cardinality: many-to-one
     cross_filter: single
-    active: true
+    active: false
     iq_phrase: Work orders target network assets.
 
   - name: Technician to Work Order
@@ -660,6 +686,56 @@ relationships:
     active: true
     iq_phrase: Investigations preserve the evidence for incidents.
 
+  - name: Incident to Dispatch Priority
+    from_table: Dispatch Priority
+    from_column: incident_id
+    to_table: Incident
+    to_column: incident_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents have materialized work-order priority scores.
+
+  - name: Technician to Dispatch Priority
+    from_table: Dispatch Priority
+    from_column: technician_id
+    to_table: Technician
+    to_column: technician_id
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Technicians have prioritized work orders.
+
+  - name: Date to Incident
+    from_table: Incident
+    from_column: start_date
+    to_table: Date
+    to_column: date
+    cardinality: many-to-one
+    cross_filter: single
+    active: true
+    iq_phrase: Incidents are reported by their UTC start date.
+
+  - name: Date to Support Case
+    from_table: Support Case
+    from_column: opened_date
+    to_table: Date
+    to_column: date
+    cardinality: many-to-one
+    cross_filter: single
+    active: false
+    iq_phrase: Support cases have a role-playing UTC opened date.
+
+  - name: Date to Work Order
+    from_table: Work Order
+    from_column: created_date
+    to_table: Date
+    to_column: date
+    cardinality: many-to-one
+    cross_filter: single
+    active: false
+    iq_phrase: Work orders have a role-playing UTC created date.
+
 measures:
   Total Customers:
     table: Customer
@@ -679,7 +755,7 @@ measures:
   Monthly Recurring Revenue:
     table: Subscription
     dax: SUM('Subscription'[monthly_recurring_revenue])
-    format: $#,0
+    format: $#,##0.00
     description: Sum of monthly recurring revenue across subscriptions.
 
   Network Assets:
@@ -699,9 +775,9 @@ measures:
 
   Average Incident Resolution Hours:
     table: Incident
-    dax: AVERAGEX('Incident', DATEDIFF('Incident'[start_time], 'Incident'[resolution_time], HOUR))
-    format: "0.0"
-    description: Average time from incident start to resolution in hours.
+    dax: AVERAGEX(FILTER('Incident', NOT ISBLANK('Incident'[resolution_time])), DATEDIFF('Incident'[start_time], 'Incident'[resolution_time], MINUTE) / 60.0)
+    format: "0.00"
+    description: Resolution hours for nonblank resolved timestamps, retaining fractional hours.
 
   Telemetry Events:
     table: Telemetry Event
@@ -716,14 +792,14 @@ measures:
   Average Latency:
     table: Telemetry Event
     dax: CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "latency_ms")
-    format: "0.0 ms"
+    format: '0.0" ms"'
     description: Average latency in milliseconds.
 
   Average Packet Loss:
     table: Telemetry Event
     dax: CALCULATE(AVERAGE('Telemetry Event'[metric_value]), 'Telemetry Event'[metric_name] = "packet_loss_pct")
-    format: "0.00%"
-    description: Average packet loss percentage.
+    format: '0.00"%"'
+    description: Average packet-loss percentage points; 2.5 is displayed as 2.50%, not 250%.
 
   Support Cases:
     table: Support Case
@@ -754,7 +830,7 @@ measures:
   SLA Exposure Amount:
     table: SLA Exposure
     dax: SUM('SLA Exposure'[exposure_amount])
-    format: $#,0
+    format: $#,##0.00
     description: Estimated SLA exposure in CAD.
 
   High Churn Risk Customers:
@@ -767,4 +843,45 @@ measures:
     dax: AVERAGE('Churn Risk'[risk_score])
     format: "0.000"
     description: Average synthetic churn-risk score.
+
+  Affected Subscribers:
+    table: Bridge Incident Service
+    dax: DISTINCTCOUNT('Bridge Incident Service'[service_instance_id])
+    description: Distinct service instances impacted through the explicit incident-service bridge.
+
+  Affected Network Assets:
+    table: Bridge Incident Asset
+    dax: DISTINCTCOUNT('Bridge Incident Asset'[network_asset_id])
+    description: Distinct assets impacted through the explicit incident-asset bridge.
+
+  Affected Customers:
+    table: Bridge Incident Service
+    dax: >-
+      VAR ImpactedServices = VALUES('Bridge Incident Service'[service_instance_id])
+      VAR ImpactedSubscriptions = CALCULATETABLE(VALUES('Service Instance'[subscription_id]), KEEPFILTERS(TREATAS(ImpactedServices, 'Service Instance'[service_instance_id])))
+      VAR ImpactedAccounts = CALCULATETABLE(VALUES('Subscription'[account_id]), KEEPFILTERS(TREATAS(ImpactedSubscriptions, 'Subscription'[subscription_id])))
+      RETURN CALCULATE(DISTINCTCOUNT('Customer'[customer_id]), KEEPFILTERS(TREATAS(ImpactedAccounts, 'Customer'[account_id])))
+    description: CRM customers on impacted accounts, not a direct customer-service relationship.
+
+  Complaint Rate per 1000 Subscribers:
+    table: Support Case
+    dax: DIVIDE([Support Cases] * 1000.0, [Active Subscriptions])
+    format: "0.00"
+    description: Cases per 1000 active subscriptions; denominator is the subscription base rather than impacted services.
+
+  Dispatch Priority Score:
+    table: Dispatch Priority
+    dax: IF(HASONEVALUE('Dispatch Priority'[work_order_id]), MAX('Dispatch Priority'[dispatch_priority_score]), BLANK())
+    format: "0.00"
+    description: Gold score for a single work order, intentionally blank for multi-work-order totals.
+
+  Investigations:
+    table: Investigation
+    dax: DISTINCTCOUNT('Investigation'[investigation_id])
+    description: Count of saved incident evidence artifacts.
+
+  Confirmed Investigations:
+    table: Investigation
+    dax: CALCULATE(DISTINCTCOUNT('Investigation'[investigation_id]), 'Investigation'[status] = "Confirmed")
+    description: Count of confirmed incident evidence artifacts.
 

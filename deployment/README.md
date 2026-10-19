@@ -1,5 +1,13 @@
 # Fabric Deployment Guide
 
+For the single ordered guide from Azure capacity creation through demo validation, start with [Capacity to Deployment Runbook](../docs/12-deployment-runbook.md).
+This document is the deployment script reference, not a complete automated deployment.
+For paid capacity provisioning, use [Deploy-FabricCapacity.ps1](Deploy-FabricCapacity.ps1) with [fabric-capacity.param.txt.example](fabric-capacity.param.txt.example) for deployment context and `infra/fabric-capacity.bicepparam` for capacity resource values; run `-Action InitializeConfig` to create either local file if missing. The existing `Create-FabricAssets.ps1` is for Fabric workspace items, not Azure capacity creation.
+For Step 1 CLI setup, dot-source [Initialize-env.ps1](Initialize-env.ps1) with the same `fabric-capacity.param.txt`; it sets tenant-isolated CLI directories, signs in, validates the subscription, defines the context helpers, and returns a `$DemoContext` object for later steps in the terminal.
+For executable Silver/Gold transformations, follow step 6 of the runbook rather than the older placeholder-creation script.
+[Upload-FabricGenerator.ps1](Upload-FabricGenerator.ps1) uploads the generator, validator, config, and shared [medallion.py](../src/data_generator/medallion.py) module to Bronze Files.
+Import [the Silver notebook](../notebooks/Transform_Nimbus_Bronze_To_Silver.ipynb) and [the Gold notebook](../notebooks/Transform_Nimbus_Silver_To_Gold.ipynb), bind their respective default lakehouses, then run them in order to create 18 Silver and 24 Gold tables.
+
 This guide explains how to create a specific Microsoft Fabric workspace and create the demo assets for the Nimbus Fabric IQ Ontology Demo.
 
 The included script creates a **single workspace** with separate assets for Bronze, Silver, Gold, real-time, semantic, and reporting layers. This is the simplest structure for a demo. For production or enterprise governance, use separate workspaces for Bronze, Silver, Gold, and real-time.

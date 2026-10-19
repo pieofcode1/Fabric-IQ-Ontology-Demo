@@ -1,5 +1,8 @@
 # Fabric Implementation Plan
 
+For step-by-step execution, follow [Capacity to Deployment Runbook](12-deployment-runbook.md).
+This document describes design phases rather than an executable deployment sequence.
+
 ## Build phases
 
 ### Phase 1: Local synthetic data and contracts
@@ -22,13 +25,17 @@
 
 ### Phase 3: Silver Lakehouse
 
+Use [the Bronze-to-Silver notebook](../notebooks/Transform_Nimbus_Bronze_To_Silver.ipynb) after Bronze generation passes validation.
+
 - Conform all keys and data types.
 - Standardize field names to snake_case.
 - Deduplicate natural keys.
 - Validate telemetry ranges and incident timestamps.
-- Link support cases to incidents using region, time window, service type, and affected asset.
+- Validate support-case links through the explicit incident-service and incident-asset bridges and the owning account, rather than inferring impact from region alone.
 
 ### Phase 4: Gold Lakehouse or Warehouse
+
+Use [the Silver-to-Gold notebook](../notebooks/Transform_Nimbus_Silver_To_Gold.ipynb) to materialize all 24 contracted Gold tables.
 
 Create curated tables for analytics and ontology grounding:
 

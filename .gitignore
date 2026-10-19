@@ -1,4 +1,4 @@
-.venv\
+.venv/
 __pycache__\
 *.pyc
 .pytest_cache\
@@ -9,4 +9,6 @@ dist\
 build\
 *.egg-info\
 .env
-
+.venv
+infra/fabric-capacity.bicepparam
+deployment/fabric-capacity.param.txt

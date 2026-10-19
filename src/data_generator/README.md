@@ -11,6 +11,55 @@ Generates scenario-driven, causally-consistent fabricated telecom data for the F
 - Output CSV files for local inspection and Fabric Lakehouse ingestion.
 - Make the demo realistic without using real customer or network data.
 
+## First-version scope and boundaries
+
+The generator is a reusable **Industry (Telco) Synthetic Data** asset for the
+`ontario_5g_home_internet_degradation` use case, not a general-purpose telecom simulator.
+The golden scenario is `INC-2026-ONT-001`: Toronto West backhaul congestion after a delayed
+capacity upgrade, with downstream service degradation, support cases, work orders, simulated
+SLA exposure, and churn risk. Other incidents and products supply background context rather
+than a promise of complete scenario coverage.
+
+The current output is 18 CSV datasets, including explicit incident-asset and incident-service
+bridges plus saved investigations. The Fabric generation notebook calls the same code;
+Silver/Gold transformations are a separate step. The replay script emits telemetry and alarms
+for the RTI/Eventhouse demonstration, not changes to every business table.
+See the root [scope and asset-readiness guide](../../README.md#first-version-scope-and-boundaries)
+and the [deployment runbook](../../docs/12-deployment-runbook.md) for the surrounding solution.
+
+## Limitations
+
+- All identities, topology, events, sentiment, risk scores, and financial exposure are
+  fabricated. The data demonstrates a designed causal story, not a trained predictive model,
+  production SLA calculation, or validated representation of a real operator.
+- The configuration controls a bounded scenario, seed, regions, scale, and incident settings;
+  it is not a scenario plug-in engine. Changing the label or root-cause text does not implement
+  a new failure mechanism.
+- Generation creates an in-memory, fixed-date snapshot. Source metadata includes fixed June
+  2026 values; it is not a production ingestion clock. Replay rebases telemetry/alarm dates,
+  but does not synchronize cases, work orders, investigations, or risk/exposure snapshots to
+  that new clock.
+- The 21 acceptance checks cover the configured golden story and selected integrity rules,
+  not every possible background incident or arbitrary scale/configuration combination.
+  Rerun validation after changes; do not assume new scenarios inherit the same guarantees.
+- There is no autonomous remediation, real-network connector, real customer ingestion, or
+  Foundry integration. A replay script is available, but live RTI ingestion and downstream
+  Fabric experiences still need tenant setup and verification.
+
+## Future Releases
+
+Candidate extensions, not current features or committed release dates:
+
+- Add independently validated failure scenarios with configurable onset, impact, recovery,
+  and expected-answer fixtures.
+- Make scenario dates and ingestion metadata configurable and align replay-time business
+  snapshots with telemetry where the demonstration requires it.
+- Add broader configuration/scale coverage and resource-efficient generation for larger demos.
+- Add a managed/Fabric-native replay runner and verified Eventstream/Eventhouse mappings.
+
+Prioritize end-to-end verification of the current scenario before expanding the generator.
+Any extension must preserve synthetic-only data use and add scenario-specific acceptance checks.
+
 ## Commands
 
 ```powershell
@@ -72,4 +121,3 @@ you hit run, instead of showing the fixed 2026-06-16 scenario date. `--sink` sup
 Fabric Eventstream "Custom App" source - see the script's module docstring for the exact
 `uv add azure-eventhub` + connection-string wiring). `--speed` controls how many simulated
 seconds elapse per real second; `--loop` restarts the replay indefinitely for a booth demo.
-

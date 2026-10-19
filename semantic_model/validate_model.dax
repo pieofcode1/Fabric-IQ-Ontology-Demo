@@ -1,0 +1,44 @@
+EVALUATE
+VAR _incident = "INC-2026-ONT-001"
+VAR _services = CALCULATE([Affected Subscribers], TREATAS({_incident}, 'Incident'[incident_id]))
+VAR _assets = CALCULATE([Affected Network Assets], TREATAS({_incident}, 'Incident'[incident_id]))
+VAR _cases = CALCULATE([Support Cases], TREATAS({_incident}, 'Incident'[incident_id]))
+VAR _exposure = CALCULATE([SLA Exposure Amount], TREATAS({_incident}, 'Incident'[incident_id]))
+VAR _investigations = CALCULATE([Investigations], TREATAS({_incident}, 'Incident'[incident_id]))
+VAR _expectedServices = CALCULATE(DISTINCTCOUNT('Bridge Incident Service'[service_instance_id]), REMOVEFILTERS(), TREATAS({_incident}, 'Bridge Incident Service'[incident_id]))
+VAR _expectedAssets = CALCULATE(DISTINCTCOUNT('Bridge Incident Asset'[network_asset_id]), REMOVEFILTERS(), TREATAS({_incident}, 'Bridge Incident Asset'[incident_id]))
+VAR _expectedCases = CALCULATE(DISTINCTCOUNT('Support Case'[case_id]), REMOVEFILTERS(), TREATAS({_incident}, 'Support Case'[incident_id]))
+VAR _expectedExposure = CALCULATE(SUM('SLA Exposure'[exposure_amount]), REMOVEFILTERS(), TREATAS({_incident}, 'SLA Exposure'[incident_id]))
+VAR _expectedInvestigations = CALCULATE(DISTINCTCOUNT('Investigation'[investigation_id]), REMOVEFILTERS(), TREATAS({_incident}, 'Investigation'[incident_id]))
+RETURN
+    ROW(
+        "Incident", _incident,
+        "Affected Services", _services,
+        "Affected Assets", _assets,
+        "Support Cases", _cases,
+        "SLA Exposure CAD", _exposure,
+        "Investigations", _investigations,
+        "Affected Customers", CALCULATE([Affected Customers], TREATAS({_incident}, 'Incident'[incident_id])),
+        "Services Match", _services == _expectedServices,
+        "Assets Match", _assets == _expectedAssets,
+        "Cases Match", _cases == _expectedCases,
+        "Exposure Match", _exposure == _expectedExposure,
+        "Investigations Match", _investigations == _expectedInvestigations,
+        "Has Scenario Impact", _services > 0 && _assets > 0 && _cases > 0 && _investigations > 0
+    )
+
+EVALUATE
+VAR _scores = ADDCOLUMNS(
+    VALUES('Dispatch Priority'[work_order_id]),
+    "Gold Score", CALCULATE(MAX('Dispatch Priority'[dispatch_priority_score])),
+    "Measure Score", CALCULATE([Dispatch Priority Score])
+)
+RETURN
+    ROW(
+        "Work Orders Checked", COUNTROWS(_scores),
+        "Dispatch Score Mismatches", COUNTROWS(FILTER(_scores, NOT([Gold Score] == [Measure Score])))
+    )
+
+EVALUATE
+INFO.VIEW.RELATIONSHIPS()
+ORDER BY [Name]

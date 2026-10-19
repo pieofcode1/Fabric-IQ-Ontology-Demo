@@ -1,0 +1,7 @@
+using './fabric-capacity.bicep'
+
+param capacityName = 'replacewithcapacityname'
+param location = 'replace-with-approved-region'
+param skuName = 'replace-with-approved-F-SKU'
+param administratorUpn = 'replace-with-internal-admin-upn'
+param owner = 'replace-with-owner'
